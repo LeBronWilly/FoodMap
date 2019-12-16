@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from index.views import index, login, register
+from search_record.views import search_record
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('index/', index),
+    path('index/login/', login),
+    path('index/register/', register),
+    path('index/search_record/', search_record),
 ]

@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta name="generator"
+          content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="author" content="colorlib.com"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+</head>
+
+<script>
+    src = "jquery-3.2.1.min.js"
+
+    function login_btn_click() {
+        window.open('login');
+    }
+
+    function register_btn_click() {
+        window.open('register');
+    }
+
+    function search_record_btn_click() {
+        window.open('search_record');
+    }
+</script>
+
+<body>
+<div class="s01">
+    {{ address }} {{ range }}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>HouseMap</legend>
+        </fieldset>
+        <div class="inner-form">
+
+            <div class="input-field first-wrap">
+                <input name="address" type="text" placeholder="輸入地址"/>
+            </div>
+            <div class="input-field second-wrap">
+                <input name="range" type="text" placeholder="設定範圍"/>
+            </div>
+            <div class="input-field third-wrap">
+                <button class="btn-search" type="submit" id="search_btn">搜尋</button>
+            </div>
+
+            <div class="input-field third-wrap">
+                <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()">
+                    搜尋紀錄
+                </button>
+            </div>
+        </div>
+        <div class="inner-form">
+            <div class="input-field third-wrap">
+                <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
+            </div>
+        </div>
+        <div class="inner-form">
+            <div class="input-field third-wrap">
+                <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
+</html>

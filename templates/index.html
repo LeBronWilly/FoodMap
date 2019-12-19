@@ -34,6 +34,20 @@
         <fieldset>
             <legend>HouseMap</legend>
         </fieldset>
+
+
+<!------------------------------------------------------------------------>
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <p><a href="{% url 'logout' %}">logout</a></p>
+            <p><a href="{% url 'password_reset' %}">reset password</a></p>
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">login</a>
+            <a href="{% url 'signup' %}">signup</a>
+        {% endif %}
+<!------------------------------------------------------------------------>
+
         <div class="inner-form">
 
             <div class="input-field first-wrap">
@@ -52,6 +66,8 @@
                 </button>
             </div>
         </div>
+
+<!--
         <div class="inner-form">
             <div class="input-field third-wrap">
                 <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
@@ -62,6 +78,8 @@
                 <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
             </div>
         </div>
+-->
+
     </form>
 </div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

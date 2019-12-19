@@ -4,11 +4,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    address = request.POST.get('address')
-    rge = request.POST.get('range')
-    return render(request, 'index.html',
-                  {'address': address,
-                   'range': rge})
+        address = request.POST.get('address')
+        rge = request.POST.get('range')
+        return render(request, 'index.html',
+                      {'address': address,
+                       'range': rge})
 
 
 def login(request):

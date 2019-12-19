@@ -24,14 +24,14 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index),
+    path('', index),
     #path('index/login/', login),
     #path('index/register/', register),
-    path('index/search_record/', search_record),
+    path('search_record/', search_record),
 
     #path('index/login/', TemplateView.as_view(template_name='home.html')),
-    path('index/', include('users.urls')),
-    path('index/', include('django.contrib.auth.urls')),
+    path('', include('users.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
 
 

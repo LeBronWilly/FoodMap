@@ -18,11 +18,20 @@ from django.urls import path
 from index.views import index, login, register
 from search_record.views import search_record
 
+#jojo的女兒們
+from django.urls import include
+from django.views.generic.base import TemplateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin/', admin.site.urls),
     path('index/', index),
-    path('index/login/', login),
-    path('index/register/', register),
+    #path('index/login/', login),
+    #path('index/register/', register),
     path('index/search_record/', search_record),
+
+    #path('index/login/', TemplateView.as_view(template_name='home.html')),
+    path('index/', include('users.urls')),
+    path('index/', include('django.contrib.auth.urls')),
 ]
+
+

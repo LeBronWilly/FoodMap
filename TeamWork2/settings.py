@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'DBMgr',
     'index',
     'search_record',
+    'users.apps.UsersConfig',
 
 ]
 
@@ -129,3 +130,10 @@ HERE = os.path.join(HERE, '../')
 STATICFILES_DIRS = [
     os.path.join(HERE, 'static/'),
 ]
+#jojo的兒子們
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+SIGNUP_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'users.CustomUser'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

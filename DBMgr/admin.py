@@ -8,11 +8,11 @@ from DBMgr.models import show
 
 
 class CompanyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'jobname', 'jobaddress')
+    list_display = ('id', 'jobname', 'jobaddress','joblatitude','joblongitude')
 
 
 class ConvenienceStoreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'convenience_class', 'convenience_name', 'convenience_address')
+    list_display = ('id', 'convenience_class', 'convenience_name', 'convenience_address','convenience_latitude','convenience_longitude')
 
 
 class ShowAdmin(admin.ModelAdmin):

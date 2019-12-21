@@ -7,10 +7,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="author" content="colorlib.com"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
+    <style>
+        #map {
+            height: 400px;
+            weight: 100%;
+        }
+    </style>
 </head>
 
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgvvjFFN4uKJg3Pw7yDQNfdB4S26OJSXE&callback=initMap">
+</script>
 <script>
-    src = "jquery-3.2.1.min.js"
+    src = "jquery-3.2.1.min.js";
+    //MAP CODE//////////////////////////////////////////////////////////////////////
+    var map, geocoder, address;
+
+    //map初始化
+    function initMap() {
+        address = "{{ address }}";
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 14
+        });
+        //User未輸入address時, 顯示使用者當前的GPS位置
+        if (address === "None") {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        //若User已輸入addrsss, 啟動Google Maps API Geocoder, 將User輸入的address轉換為經緯度
+        else {
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode(
+                {'address': address},
+                function (results, status) {
+                    if (status === "OK") {
+                        //設置地圖的檢視中心點
+                        map.setCenter(results[0].geometry.location);
+                        //督進圖釘
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        alert("MDFK Status Error: " + status);
+                    }
+                }
+            )
+        }
+    }
+
+    //GMaps Error Handler
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+
+    //END OF MAP CODE//////////////////////////////////////////////////////////////////////
 
     function login_btn_click() {
         window.open('login');
@@ -36,7 +104,7 @@
         </fieldset>
 
 
-<!------------------------------------------------------------------------>
+        <!------------------------------------------------------------------------>
         {% if user.is_authenticated %}
             Hi {{ user.username }}!
             <p><a href="{% url 'logout' %}">logout</a></p>
@@ -46,7 +114,7 @@
             <a href="{% url 'login' %}">login</a>
             <a href="{% url 'signup' %}">signup</a>
         {% endif %}
-<!------------------------------------------------------------------------>
+        <!------------------------------------------------------------------------>
 
         <div class="inner-form">
 
@@ -66,19 +134,22 @@
                 </button>
             </div>
         </div>
+        <div id="map" class="inner-form">
+            {#            <div id="map"></div>#}
+        </div>
 
-<!--
-        <div class="inner-form">
-            <div class="input-field third-wrap">
-                <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
-            </div>
-        </div>
-        <div class="inner-form">
-            <div class="input-field third-wrap">
-                <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
-            </div>
-        </div>
--->
+        <!--
+                <div class="inner-form">
+                    <div class="input-field third-wrap">
+                        <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
+                    </div>
+                </div>
+                <div class="inner-form">
+                    <div class="input-field third-wrap">
+                        <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
+                    </div>
+                </div>
+        -->
 
     </form>
 </div>

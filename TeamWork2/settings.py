@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'index',
     'search_record',
     'users.apps.UsersConfig',
+    'add2gel',
 
 ]
 

@@ -117,10 +117,11 @@
 
 <!--呼叫GMAPs API-->
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgvvjFFN4uKJg3Pw7yDQNfdB4S26OJSXE&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgvvjFFN4uKJg3Pw7yDQNfdB4S26OJSXE">
 </script>
 
 <script type="text/javascript">
+    var s;
     $(document).ready(function () {
         console.log({{ table_selection }});
         $('[data-toggle="tooltip"]').tooltip();
@@ -172,32 +173,36 @@
         // Transfer row on transfer button click
         $(document).on("click", ".transfer", function () {
             var latlng;
+            var dataid = parseInt($(this).parents("tr").children("td.id").text());
             var ptb = $(this).parents("tr").children("td.address").text();
             console.log(ptb); //顯示擷取出的地址欄位字串
             //呼叫API做經緯度轉換
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({'address': ptb}, function(results, status){
-                if(status === 'OK'){
+            geocoder.geocode({'address': ptb}, function (results, status) {
+                if (status === 'OK') {
                     latlng = results[0].geometry.location;
-                    //癥結點: API回傳的經緯度資料式Object, 不知如何萃取出經緯度字串
+                    console.log(dataid);
+                    console.log("經度: " + latlng.lat());
+                    console.log("緯度: " + latlng.lng());
+                    //將要轉換的table代號, 欄位ID, API轉換出的經緯度, 透過GET方式傳送給view.transfer
+                    window.location = "transfer/?table=" + s + "&id=" + dataid + "&lat=" + latlng.lat().toFixed(7) + "&lng=" + latlng.lng().toFixed(7);
                 }
-                console.log(latlng);
             })
 
         });
 
     });
-</script>
-<script>
-    {#var s;#}
 
+
+//資料表選擇器
     function table_selector() {
-        var s = document.getElementById("table_selector").value;
+        s = document.getElementById("table_selector").value;
         console.log("選取值: " + s);
         if (s === 'company') {
             $(".table").html(
                 '<thead>' +
                 '<tr>' +
+                '<th>ID</th>' +
                 '<th>名稱</th>' +
                 '<th>地址</th>' +
                 '<th>經度</th>' +
@@ -208,19 +213,25 @@
                 '<tbody>' +
                 {% for list in company %}
                     '<tr>\n'+
+                    '<td class="id"> {{ list.id }} </td>\n'+
                     '<td> {{ list.jobname }} </td>\n'+
-                    '<td> {{ list.jobaddress }} </td>\n'+
+                    '<td class="address"> {{ list.jobaddress }} </td>\n'+
                     '<td> {{ list.joblatitude }} </td>\n'+
                     '<td> {{ list.joblongitude }} </td>\n'+
+                    '<td>'+
+                    '<a class="transfer" title="轉起來" data-toggle="tooltip">轉起來</a>\n'+
+                    '</td>\n'+
                     ' </tr>\n'+
+
                 {% endfor %}
                 '\n' +
                 '</tbody>')
         }
-        else if (s === 'show') {
+        else if (s === 'showinfo') {
             $(".table").html(
                 '<thead>' +
                 '<tr>' +
+                '<th>ID</th>' +
                 '<th>活動主題</th>' +
                 '<th>地址</th>' +
                 '<th>地點</th>' +
@@ -232,6 +243,7 @@
                 '<tbody>' +
                 {% for list in showinfo %}
                     '<tr>\n'+
+                    '<td class="id"> {{ list.id }} </td>\n'+
                     '<td> {{ list.title }} </td>\n'+
                     '<td class="address"> {{ list.location }} </td>\n'+
                     '<td> {{ list.locationName }} </td>\n'+
@@ -249,6 +261,7 @@
             $(".table").html(
                 '<thead>' +
                 '<tr>' +
+                '<th>ID</th>' +
                 '<th>超商名稱</th>' +
                 '<th>分店名</th>' +
                 '<th>地址</th>' +
@@ -260,11 +273,15 @@
                 '<tbody>' +
                 {% for list in convenience_store %}
                     '<tr>\n'+
+                    '<td class="id"> {{ list.id }} </td>\n'+
                     '<td> {{ list.convenience_class }} </td>\n'+
                     '<td> {{ list.convenience_name }} </td>\n'+
-                    '<td> {{ list.convenience_address }} </td>\n'+
+                    '<td class="address"> {{ list.convenience_address }} </td>\n'+
                     '<td> {{ list.convenience_latitude }} </td>\n'+
                     '<td> {{ list.convenience_longitude }} </td>\n'+
+                    '<td>'+
+                    '<a class="transfer" title="轉起來" data-toggle="tooltip">轉起來</a>\n'+
+                    '</td>\n'+
                     ' </tr>\n'+
                 {% endfor %}
                 '\n' +
@@ -283,7 +300,7 @@
     <select id="table_selector" name="table_selector" class="table_selector" onchange="table_selector()">
         <option>趕快選啦幹</option>
         <option value="company">工作機會</option>
-        <option value="show">展演</option>
+        <option value="showinfo">展演</option>
         <option value="convenience_store">便利商店</option>
     </select>
 

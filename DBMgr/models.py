@@ -8,6 +8,7 @@
 from django.db import models
 
 class Company(models.Model):
+    id = models.IntegerField(primary_key=True)
     jobname = models.TextField(db_column='jobName', blank=True, null=True)  # Field name made lowercase.
     jobaddress = models.TextField(db_column='jobAddress', blank=True, null=True)  # Field name made lowercase.
     joblatitude = models.TextField(default="0.0")
@@ -19,6 +20,7 @@ class Company(models.Model):
 
 
 class ConvenienceStore(models.Model):
+    id = models.IntegerField(primary_key=True)
     convenience_class = models.TextField(blank=True, null=True)
     convenience_name = models.TextField(blank=True, null=True)
     convenience_address = models.TextField(blank=True, null=True)
@@ -30,6 +32,7 @@ class ConvenienceStore(models.Model):
         db_table = 'convenience_store'
 
 class show(models.Model):
+    id = models.IntegerField(primary_key=True)
     title = models.TextField()
     location =models.TextField()
     locationName = models.TextField()

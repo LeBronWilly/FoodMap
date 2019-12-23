@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from index.views import index, login, register
 from search_record.views import search_record
-from add2gel.views import add2gel, transfer
+from add2gel.views import add2gel, transfer, batch_transfer
 
 
 #jojo的女兒們
@@ -36,6 +36,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('add2gel/', add2gel),
     path('add2gel/transfer/', transfer),
+    path('add2gel/batch_trans/', batch_transfer),
 
 ]
 

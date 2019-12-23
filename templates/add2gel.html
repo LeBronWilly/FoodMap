@@ -191,6 +191,11 @@
 
         });
 
+        $(document).on("click", ".batch_trans", function () {
+           var t = document.getElementById("batch_table_selector").value;
+           window.location = "batch_trans/?table=" + t;
+        });
+
     });
 
 
@@ -303,36 +308,22 @@
         <option value="showinfo">展演</option>
         <option value="convenience_store">便利商店</option>
     </select>
+    <br>
+    <a>批次轉換未轉換的資料：</a>
+    <select id="batch_table_selector" name="batch_table_selector" class="batch table_selector">
+        <option>選個Tableㄅ</option>
+        <option value="company">工作機會</option>
+        <option value="showinfo">展演</option>
+        <option value="convenience_store">便利商店</option>
+    </select>
+
+    <a class="batch_trans">開始轉換</a>
 
     <div class="table-wrapper">
         <div class="table-title">
         </div>
         <table class="table table-bordered">
-            {#            <thead>#}
-            {#            <tr>#}
-            {#                <th>名稱</th>#}
-            {#                <th>地址</th>#}
-            {#                <th>經度</th>#}
-            {#                <th>緯度</th>#}
-            {#            </tr>#}
-            {#            </thead>#}
-            {#            <tbody>#}
-            {#            {% for list in company %}#}
-            {#                <tr>#}
-            {##}
-            {#                        <td>{{ list.jobname }}</td>#}
-            {#                        <td>{{ list.jobaddress }}</td>#}
-            {#                        <td>{{ list.joblatitude }}</td>#}
-            {#                        <td>{{ list.joblongitude }}</td>#}
-            {#                    #}
-            {#                                <td>#}
-            {#                                    <a class="delete" title="刪除" data-toggle="tooltip"><i#}
-            {#                                            class="material-icons">&#xE872;</i></a>#}
-            {#                                </td>#}
-            {#                </tr>#}
-            {#            {% endfor %}#}
-            {##}
-            {#            </tbody>#}
+
         </table>
     </div>
 </div>

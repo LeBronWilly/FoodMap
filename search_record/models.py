@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class SearchRecord(models.Model):
-    user_id = models.IntegerField(max_length=200)
+    username = models.TextField(max_length=150)
     address = models.TextField()
     range = models.IntegerField(max_length=200)
     time = models.DateTimeField(default=timezone.now)

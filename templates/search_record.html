@@ -163,8 +163,31 @@
             });
             // Delete row on delete button click
             $(document).on("click", ".delete", function () {
+                const tr = $(this).parents("tr");
+                $(tr).each(function () {
+                    var number = $(this).find('td').eq(0).text()
+                    alert(number);
+                    $.ajax({
+                        type: "POST",
+                        url: "",
+                        data: {
+                            'number': number, // from form
+                            // all of this data is submitted via POST to your view.
+                            // in django, request.POST['background-color']
+                        },
+                        headers: {
+                            'X-CSRFTOKEN': "{{ csrf_token }}",
+                        },
+                        success: function (data) {
+
+                        }
+                    });
+                });
+
                 $(this).parents("tr").remove();
-                $(".add-new").removeAttr("disabled");
+
+
+                {#$(".add-new").removeAttr("disabled");#}
             });
         });
     </script>
@@ -180,6 +203,7 @@
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th style="display: none">編號</th>
                 <th>地址</th>
                 <th>範圍</th>
                 <th>時間</th>
@@ -190,12 +214,13 @@
             {% for record_item in record %}
                 <tr>
                     {#                    {% for key,value in item.items %}#}
+                    <td style="display: none">{{ record_item.id }}</td>
                     <td>{{ record_item.address }}</td>
                     <td>{{ record_item.range }}</td>
                     <td>{{ record_item.time }}</td>
                     {#                    {% endfor %}#}
                     <td>
-                        <a class="delete" title="刪除" data-toggle="tooltip"><i
+                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
                                 class="material-icons">&#xE872;</i></a>
                     </td>
                 </tr>

@@ -2,15 +2,15 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-{#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"#}
-{#            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"#}
-{#            crossorigin="anonymous"></script>#}
-{#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
-{#            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"#}
-{#            crossorigin="anonymous"></script>#}
-{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
-{#            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"#}
-{#            crossorigin="anonymous"></script>#}
+    {#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"#}
+    {#            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"#}
+    {#            crossorigin="anonymous"></script>#}
+    {#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
+    {#            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"#}
+    {#            crossorigin="anonymous"></script>#}
+    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
+    {#            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"#}
+    {#            crossorigin="anonymous"></script>#}
     <meta name="generator"
           content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -18,8 +18,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="author" content="colorlib.com"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
-{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"#}
-{#          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
+    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"#}
+    {#          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
     <style>
         #map {
             height: 400px;
@@ -103,6 +103,97 @@
     }
 
 
+    function getShowVal() {
+        var a = document.getElementById("showSelect");
+        var show_name = a.options[a.selectedIndex].value
+        alert(show_name)
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                'show_name': show_name, // from form
+                // all of this data is submitted via POST to your view.
+                // in django, request.POST['background-color']
+            },
+            headers: {
+                'X-CSRFTOKEN': "{{ csrf_token }}",
+            },
+            success: function (data) {
+
+            }
+        });
+
+    }
+
+    function getCompanyVal() {
+        var a = document.getElementById("jobSelect");
+        var company_name = a.options[a.selectedIndex].value
+        alert(company_name)
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                'company_name': company_name, // from form
+                // all of this data is submitted via POST to your view.
+                // in django, request.POST['background-color']
+            },
+            headers: {
+                'X-CSRFTOKEN': "{{ csrf_token }}",
+            },
+            success: function (data) {
+
+            }
+        });
+
+    }
+
+    function getStoreVal() {
+        var a = document.getElementById("storeSelect");
+        var store_name = a.options[a.selectedIndex].value
+        alert(store_name)
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                'store_name': store_name, // from form
+                // all of this data is submitted via POST to your view.
+                // in django, request.POST['background-color']
+            },
+            headers: {
+                'X-CSRFTOKEN': "{{ csrf_token }}",
+            },
+            success: function (data) {
+
+            }
+        });
+
+    }
+
+    var select = document.querySelector('#showSelect');
+    select.onchange = function (event) {
+        console.log(event);
+        var value = event.target.value;
+        alert(value);
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                'value': value, // from form
+                // all of this data is submitted via POST to your view.
+                // in django, request.POST['background-color']
+            },
+            headers: {
+                'X-CSRFTOKEN': "{{ csrf_token }}",
+            },
+            success: function (data) {
+
+            }
+        });
+    }
+
+
 </script>
 
 <body>
@@ -130,6 +221,7 @@
 
         <div class="inner-form">
 
+
             <div class="input-field first-wrap">
                 <input name="address" type="text" placeholder="輸入地址"/>
             </div>
@@ -143,7 +235,7 @@
             <div class="input-field third-wrap">
                 <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()">
                     <a href="/search_record/" style="color:white; text-decoration:none;">
-                        搜尋紀錄
+                        我的收藏
                     </a>
                 </button>
             </div>
@@ -174,30 +266,68 @@
 
             </script>
         </div>
+        <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
+            <option value={{ show_item.title }}>{{ show_item.title }}</option> {% endfor %}
+        </select>
+        <select onchange="getStoreVal()" form="countrySelection" id="storeSelect" name="storeSelect">
+            {% for store_item in store_filter %}
+                <option value="{{ store_item.convenience_name }}">{{ store_item.convenience_name }}
+                    - {{ store_item.convenience_name }}</option> {% endfor %}
+        </select>
+
+        <select onchange="getCompanyVal()" form="countrySelection" id="jobSelect" name="jobSelect">
+            {% for company_item in company_filter %}
+                <option value={{ company_item.jobname }}>{{ company_item.jobname }}</option> {% endfor %}
+        </select>
+
+        {#        <form action="/add2collection" id="countrySelection" method="post">#}
+        {#            {% csrf_token %}#}
+        {##}
+        {#            <select form="countrySelection" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}#}
+        {#                <option value={{ show_item.title }}>{{ show_item.title }}</option> {% endfor %}#}
+        {#            </select>#}
+        {##}
+        {##}
+        {#            <select form="countrySelection" id="jobSelect" name="jobSelect"> {% for company_item in company_filter %}#}
+        {#                <option value={{ company_item.jobname }}>{{ company_item.jobname }}</option> {% endfor %}#}
+        {#            </select>#}
+        {##}
+        {##}
+        {#            <select form="countrySelection" id="storeSelect" name="storeSelect"> {% for store_item in store_filter %}#}
+        {#                <option value="{{ store_item.convenience_name }}">{{ store_item.convenience_name }}#}
+        {#                    - {{ store_item.convenience_name }}</option> {% endfor %}#}
+        {#            </select>#}
+        {##}
+        {#            <input class="button" type="submit" value="加入收藏">#}
+        {#        </form>#}
 
 
-        <div class="dropdown">
-            <select> {% for show_item in Show_filter %}
-                <option value="{{ show_item.title }}">{{ show_item.title }}</option> {% endfor %} </select>
-        </div>
+    </form>
 
 
-        <div id="map" class="inner-form">
-            {#            <div id="map"></div>#}
-        </div>
+    {#    <div>#}
+    {#        <form action='actionUrl' method='GET'>#}
+    {#            <button type='submit'>加入收藏</button>#}
+    {#        </form>#}
+    {#    </div>#}
 
-        <!--
-                <div class="inner-form">
-                    <div class="input-field third-wrap">
-                        <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
-                    </div>
+
+    <div id="map" class="inner-form">
+        {#            <div id="map"></div>#}
+    </div>
+
+    <!--
+            <div class="inner-form">
+                <div class="input-field third-wrap">
+                    <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
                 </div>
-                <div class="inner-form">
-                    <div class="input-field third-wrap">
-                        <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
-                    </div>
+            </div>
+            <div class="inner-form">
+                <div class="input-field third-wrap">
+                    <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
                 </div>
-        -->
+            </div>
+    -->
 
     </form>
 </div>

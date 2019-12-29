@@ -15,23 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from index.views import index, login, register
+from index.views import index, login, register, add2collection
 from search_record.views import search_record
 from add2gel.views import add2gel, transfer, batch_transfer
 
-
-#jojo的女兒們
+# jojo的女兒們
 from django.urls import include
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    #path('index/login/', login),
-    #path('index/register/', register),
+    # path('index/login/', login),
+    # path('index/register/', register),
     path('search_record/', search_record),
+    path('add2collection/', add2collection),
 
-    #path('index/login/', TemplateView.as_view(template_name='home.html')),
+    # path('index/login/', TemplateView.as_view(template_name='home.html')),
     path('', include('users.urls')),
     path('', include('django.contrib.auth.urls')),
     path('add2gel/', add2gel),
@@ -39,5 +39,3 @@ urlpatterns = [
     path('add2gel/batch_trans/', batch_transfer),
 
 ]
-
-

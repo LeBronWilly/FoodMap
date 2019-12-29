@@ -47,6 +47,27 @@ def index(request):
                 s2.delete()
             return render(request, 'index.html', locals())
     else:
+        get_show_name = request.POST.get('show_name')
+        get_company_name = request.POST.get('company_name')
+        get_store_name = request.POST.get('store_name')
+        print(get_show_name, get_company_name, get_store_name)
+        county = request.POST.get('county')
+        district = request.POST.get('district')
+        company = Company.objects.all()
+        Show = show.objects.all()
+        store = ConvenienceStore.objects.all()
+        if county and district:
+            company_filter = company.filter(Q(jobaddress__icontains=county) &
+                                            Q(jobaddress__icontains=district)).distinct()
+            Show_filter = Show.filter(Q(location__icontains=county) &
+                                      Q(location__icontains=district)).distinct()
+            store_filter = store.filter(Q(convenience_address__icontains=county) &
+                                        Q(convenience_address__icontains=district)).distinct()
+
+        username = request.user.username
+        address = request.POST.get('address')
+        rge = request.POST.get('range')
+        get_number = request.POST.get('number')
         county = request.POST.get('county')
         district = request.POST.get('district')
         company = Company.objects.all()

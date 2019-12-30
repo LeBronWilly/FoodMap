@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +87,18 @@
       <recent name="C:\Users\andywei\Documents\DjangoTeamwork2\templates" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="TeamWork2" type="Python.DjangoServer" factoryName="Django server">
       <module name="TeamWork2" />
@@ -111,28 +124,6 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:db.sqlite3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:db.sqlite3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6b1d8b08" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -191,6 +182,8 @@
       <workItem from="1577683289166" duration="4961000" />
       <workItem from="1577688331866" duration="32000" />
       <workItem from="1577688434436" duration="1196000" />
+      <workItem from="1577692869227" duration="3749000" />
+      <workItem from="1577696686961" duration="132000" />
     </task>
     <servers />
   </component>

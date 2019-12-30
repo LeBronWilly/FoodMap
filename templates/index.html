@@ -65,7 +65,7 @@
         }
 
         //若User已選擇addrsss, 啟動Google Maps API Geocoder, 將User輸入的address轉換為經緯度
-        if(address!=='NoneNone') {
+        if (address !== 'NoneNone') {
             geocoder.geocode(
                 {
                     'address': address,
@@ -114,9 +114,17 @@
     var store_add;
     var store_name;
     var store_id;
+    var show;
+    var show_value;
+    var company;
+    var company_value;
+    var store;
+    var store_value;
+    var add_show_id;
+    var add_company_id;
+    var add_store_id
 
     function getShowVal() {
-        var type = 1;
         var show = document.getElementById("showSelect");
         show_add = show.options[show.selectedIndex].value;
         show_id = show.options[show.selectedIndex].id;
@@ -164,7 +172,6 @@
     }
 
     function getCompanyVal() {
-        var type = 2;
         var company = document.getElementById("jobSelect");
         company_add = company.options[company.selectedIndex].value;
         company_name = company.options[company.selectedIndex].text;
@@ -215,7 +222,6 @@
     }
 
     function getStoreVal() {
-        var type = 3;
         var store = document.getElementById("storeSelect");
         store_add = store.options[store.selectedIndex].value;
         store_name = store.options[store.selectedIndex].text;
@@ -263,46 +269,33 @@
 
     }
 
+
     function add2collection() {
-        {#var show = document.getElementById("showSelect");#}
-        {#var show_id = show.options[show.selectedIndex].value;#}
-        {#var show_name = show.options[show.selectedIndex].text;#}
-        if (show_id && show_name) {
-            alert(show_id);
-            alert(show_name);
+        show = document.getElementById("showSelect");
+        show_value = show.options[show.selectedIndex].value;
+        add_show_id = show.options[show.selectedIndex].id;
+        company = document.getElementById("jobSelect");
+        company_value = company.options[company.selectedIndex].value;
+        add_company_id = company.options[company.selectedIndex].id;
+        store = document.getElementById("storeSelect");
+        store_value = store.options[store.selectedIndex].value;
+        add_store_id = store.options[store.selectedIndex].id;
+
+        if (show_value == 0 && company_value == 0 && store_value == 0) {
+            alert("請先選擇至少一項")
+        } else {
+            alert("已加入")
             $.ajax({
                 type: "POST",
                 url: "",
                 data: {
                     //'type_c': type,
-                    'show_id_c': show_id,
+                    'show_id_c': add_show_id,
                     'show_name_c': show_name,
-                    // all of this data is submitted via POST to your view.
-                    // in django, request.POST['background-color']
-                },
-                headers: {
-                    'X-CSRFTOKEN': "{{ csrf_token }}",
-                },
-                success: function (data) {
-
-                }
-            });
-
-        }
-
-        {#var company = document.getElementById("jobSelect");#}
-        {#var company_id = company.options[company.selectedIndex].value;#}
-        {#var company_name = company.options[company.selectedIndex].text;#}
-        if (company_id && company_name) {
-            alert(company_id);
-            alert(company_name);
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    //'type_c': type,
-                    'company_id_c': company_id,
+                    'company_id_c': add_company_id,
                     'company_name_c': company_name,
+                    'store_id_c': add_store_id,
+                    'store_name_c': store_name,
                     // all of this data is submitted via POST to your view.
                     // in django, request.POST['background-color']
                 },
@@ -316,9 +309,59 @@
 
         }
 
-        {#var store = document.getElementById("storeSelect");#}
-        {#var store_id = store.options[store.selectedIndex].value;#}
-        {#var store_name = store.options[store.selectedIndex].text;#}
+
+        {% comment %} if (show_id && show_name) {
+             alert(show_id);
+             alert(show_name);
+             $.ajax({
+                 type: "POST",
+                 url: "",
+                 data: {
+                     //'type_c': type,
+                     'show_id_c': show_id,
+                     'show_name_c': show_name,
+                     // all of this data is submitted via POST to your view.
+                     // in django, request.POST['background-color']
+                 },
+                 headers: {
+                     'X-CSRFTOKEN': "{{ csrf_token }}",
+                 },
+                 success: function (data) {
+
+                 }
+             });
+
+         }
+
+         var company = document.getElementById("jobSelect");
+         var company_id = company.options[company.selectedIndex].value;
+         var company_name = company.options[company.selectedIndex].text;
+         if (company_id && company_name) {
+             alert(company_id);
+             alert(company_name);
+             $.ajax({
+                 type: "POST",
+                 url: "",
+                 data: {
+                     //'type_c': type,
+                     'company_id_c': company_id,
+                     'company_name_c': company_name,
+                     // all of this data is submitted via POST to your view.
+                     // in django, request.POST['background-color']
+                 },
+                 headers: {
+                     'X-CSRFTOKEN': "{{ csrf_token }}",
+                 },
+                 success: function (data) {
+
+                 }
+             });
+
+         }{% endcomment %}
+
+        {% comment %}var store = document.getElementById("storeSelect");
+        var store_id = store.options[store.selectedIndex].value;
+        var store_name = store.options[store.selectedIndex].text;
         if (store_id && store_name) {
             alert(store_id);
             alert(store_name);
@@ -341,7 +384,7 @@
             });
 
         }
-
+{% endcomment %}
 
     }
 </script>
@@ -372,11 +415,39 @@
         <div class="inner-form">
 
 
-            <div class="input-field first-wrap">
-                <input name="address" type="text" placeholder="輸入地址"/>
-            </div>
-            <div class="input-field second-wrap">
-                <input name="range" type="text" placeholder="設定範圍"/>
+            {#            <div class="input-field first-wrap">#}
+            {#                <input name="address" type="text" placeholder="輸入地址"/>#}
+            {#            </div>#}
+            {#            <div class="input-field second-wrap">#}
+            {#                <input name="range" type="text" placeholder="設定範圍"/>#}
+            {#            </div>#}
+            <div>
+                <div id="twzipcode"></div>
+                <script>
+                    $("#twzipcode").twzipcode({
+                        'countySel': '{{ county }}',
+                        'districtSel': '{{ district }}'
+                    });
+                    var array = $("#twzipcode").twzipcode('get', 'county,district');
+                    $.ajax({
+                        type: "POST",
+                        url: "",
+                        data: {
+                            'county': array[0],
+                            'district': array[1],// from form
+                            // all of this data is submitted via POST to your view.
+                            // in django, request.POST['background-color']
+                        },
+                        headers: {
+                            'X-CSRFTOKEN': "{{ csrf_token }}",
+                        },
+                        success: function (data) {
+
+                        }
+                    });
+
+
+                </script>
             </div>
             <div class="input-field third-wrap">
                 <button class="btn-search" type="submit" id="search_btn">搜尋</button>
@@ -391,44 +462,22 @@
             </div>
         </div>
 
-        <div>
-            <div id="twzipcode"></div>
-            <script>
-                $("#twzipcode").twzipcode({
-                    'countySel': '{{ county }}',
-                    'districtSel': '{{ district }}'
-                });
-                var array = $("#twzipcode").twzipcode('get', 'county,district');
-                $.ajax({
-                    type: "POST",
-                    url: "",
-                    data: {
-                        'county': array[0],
-                        'district': array[1],// from form
-                        // all of this data is submitted via POST to your view.
-                        // in django, request.POST['background-color']
-                    },
-                    headers: {
-                        'X-CSRFTOKEN': "{{ csrf_token }}",
-                    },
-                    success: function (data) {
 
-                    }
-                });
-
-
-            </script>
-        </div>
         <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
+            <option value=0 selected disabled hidden>請選擇</option>
             <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
 
         <select onchange="getCompanyVal()" id="jobSelect" name="jobSelect">{% for company_item in company_filter %}
-            <option id="{{ company_item.id }}" value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
+            <option value=0 selected disabled hidden>請選擇</option>
+            <option id="{{ company_item.id }}"
+                    value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
         </select>
 
         <select onchange="getStoreVal()" id="storeSelect" name="storeSelect">{% for store_item in store_filter %}
-            <option id="{{ store_item.id }}" value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
+            <option value=0 selected disabled hidden>請選擇</option>
+            <option id="{{ store_item.id }}"
+                    value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
                 - {{ store_item.convenience_name }}</option> {% endfor %}
         </select>
 

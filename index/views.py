@@ -111,9 +111,10 @@ def index(request):
 
         get_show_id = request.POST.get('show_id')
         get_show_name = request.POST.get('show_name')
-        if get_show_id and get_show_name:
+        if get_show_name:
             print("下拉id= " + str(get_show_id))
             print("下拉name= " + str(get_show_name))
+            show_add = Show.filter(title=str(get_show_name)).values()[0]['location']
 
         get_company_id = request.POST.get('company_id')
         get_company_name = request.POST.get('company_name')

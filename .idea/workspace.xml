@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBMgr/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBMgr/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamWork2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamWork2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamWork2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamWork2/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_record/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_record/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_record/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_record/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search_record.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,39 +40,7 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="DBMgr_favoritecompany: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="DBMgr_favoriteshow: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db.sqlite3 [2]" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3 [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3 [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3 [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="DBMgr_favoriteshow: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -128,18 +86,6 @@
       <recent name="C:\Users\andywei\Documents\DjangoTeamwork2\templates" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="TeamWork2" type="Python.DjangoServer" factoryName="Django server">
       <module name="TeamWork2" />
@@ -167,14 +113,25 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <option name="contentProportion" value="0.4271523" />
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:db.sqlite3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:db.sqlite3" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6b1d8b08" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -231,6 +188,9 @@
       <workItem from="1577675564856" duration="474000" />
       <workItem from="1577676067580" duration="568000" />
       <workItem from="1577676686075" duration="3270000" />
+      <workItem from="1577683289166" duration="4961000" />
+      <workItem from="1577688331866" duration="32000" />
+      <workItem from="1577688434436" duration="1196000" />
     </task>
     <servers />
   </component>
@@ -259,28 +219,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576855290080" />
-    <state width="1238" height="97" key="GridCell.Tab.0.bottom" timestamp="1577117016189">
+    <state width="619" height="147" key="GridCell.Tab.0.bottom" timestamp="1577688283345">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="97" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1577117016189" />
+    <state width="619" height="147" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1577688283345" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576857094494" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575815233863" />
-    <state width="1238" height="97" key="GridCell.Tab.0.center" timestamp="1577117016189">
+    <state width="619" height="147" key="GridCell.Tab.0.center" timestamp="1577688283345">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="97" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1577117016189" />
+    <state width="619" height="147" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1577688283345" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576857094494" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575815233863" />
-    <state width="1238" height="97" key="GridCell.Tab.0.left" timestamp="1577117016189">
+    <state width="619" height="147" key="GridCell.Tab.0.left" timestamp="1577688283345">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="97" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1577117016189" />
+    <state width="619" height="147" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1577688283345" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576857094494" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575815233863" />
-    <state width="1238" height="97" key="GridCell.Tab.0.right" timestamp="1577117016189">
+    <state width="619" height="147" key="GridCell.Tab.0.right" timestamp="1577688283345">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state width="1238" height="97" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1577117016189" />
+    <state width="619" height="147" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1577688283345" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576857094494" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1575815233863" />
     <state width="1238" height="235" key="GridCell.Tab.1.bottom" timestamp="1576957406950">

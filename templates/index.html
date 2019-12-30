@@ -36,46 +36,47 @@
 
     src = "jquery-3.2.1.min.js";
     //MAP CODE//////////////////////////////////////////////////////////////////////
-    var map, geocoder, address;
+    var map, geocoder, address, infoWindow;
 
     //map初始化
     function initMap() {
-        address = "{{ address }}";
+        address = "{{ county }}{{ district }}";
+        console.log(address);
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
             zoom: 15
         });
+        infoWindow = new google.maps.InfoWindow();
+        geocoder = new google.maps.Geocoder();
         //User未輸入address時, 顯示使用者當前的GPS位置
-        if (address === "None") {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    map.setCenter(pos);
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
         }
-        //若User已輸入addrsss, 啟動Google Maps API Geocoder, 將User輸入的address轉換為經緯度
-        else {
-            geocoder = new google.maps.Geocoder();
+
+        //若User已選擇addrsss, 啟動Google Maps API Geocoder, 將User輸入的address轉換為經緯度
+        if(address!=='NoneNone') {
             geocoder.geocode(
-                {'address': address},
+                {
+                    'address': address,
+                },
                 function (results, status) {
                     if (status === "OK") {
                         //設置地圖的檢視中心點
                         map.setCenter(results[0].geometry.location);
+
                         //督進圖釘
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
+
                     } else {
                         alert("MDFK Status Error: " + status);
                     }
@@ -106,15 +107,19 @@
 
     var show_add;
     var show_name;
+    var show_id;
     var company_add;
     var company_name;
+    var company_id;
     var store_add;
     var store_name;
+    var store_id;
 
     function getShowVal() {
-        var type = 1
+        var type = 1;
         var show = document.getElementById("showSelect");
         show_add = show.options[show.selectedIndex].value;
+        show_id = show.options[show.selectedIndex].id;
         show_name = show.options[show.selectedIndex].text;
         alert(show_add);
         alert(show_name);
@@ -132,19 +137,41 @@
         {#        'X-CSRFTOKEN': "{{ csrf_token }}",#}
         {#    },#}
         {#    success: function (data) {#}
-        {##}
+        {#        console.log("展演名稱:" +show_add);#}
         {#    }#}
-        {#});#}
+        //});
+        geocoder.geocode(
+            {'address': show_add},
+            function (results, status) {
+                if (status === "OK") {
+                    //設置地圖的檢視中心點
+                    map.setCenter(results[0].geometry.location);
+                    //督進圖釘
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    infoWindow.setPosition(results[0].geometry.location);
+                    infoWindow.setContent(show_name);
+                    infoWindow.open(map);
+
+                } else {
+                    alert("MDFK Status Error: " + status);
+                }
+            }
+        )
 
     }
 
     function getCompanyVal() {
-        var type = 2
+        var type = 2;
         var company = document.getElementById("jobSelect");
-        company_add = company.options[company.selectedIndex].value
-        company_name = company.options[company.selectedIndex].text
-        alert(company_add)
-        alert(company_name)
+        company_add = company.options[company.selectedIndex].value;
+        company_name = company.options[company.selectedIndex].text;
+        company_id = company.options[company.selectedIndex].id;
+
+        alert(company_add);
+        alert(company_name);
 
         {#$.ajax({#}
         {#    type: "POST",#}
@@ -162,18 +189,40 @@
         {#    success: function (data) {#}
         {##}
         {#    }#}
-        {#});#}
+        //});
+
+        geocoder.geocode(
+            {'address': company_add},
+            function (results, status) {
+                if (status === "OK") {
+                    //設置地圖的檢視中心點
+                    map.setCenter(results[0].geometry.location);
+                    //督進圖釘
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    infoWindow.setPosition(results[0].geometry.location);
+                    infoWindow.setContent(company_name);
+                    infoWindow.open(map);
+
+                } else {
+                    alert("MDFK Status Error: " + status);
+                }
+            }
+        );
 
     }
 
     function getStoreVal() {
-        var type = 3
+        var type = 3;
         var store = document.getElementById("storeSelect");
-        store_add = store.options[store.selectedIndex].value
-        store_name = store.options[store.selectedIndex].text
-        alert(store_add)
-        alert(store_name)
+        store_add = store.options[store.selectedIndex].value;
+        store_name = store.options[store.selectedIndex].text;
+        store_id = store.options[store.selectedIndex].id;
 
+        alert(store_add);
+        alert(store_name);
         {#$.ajax({#}
         {#    type: "POST",#}
         {#    url: "",#}
@@ -190,7 +239,27 @@
         {#    success: function (data) {#}
         {##}
         {#    }#}
-        {#});#}
+        //});
+        geocoder.geocode(
+            {'address': store_add},
+            function (results, status) {
+                if (status === "OK") {
+                    //設置地圖的檢視中心點
+                    map.setCenter(results[0].geometry.location);
+                    //督進圖釘
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    infoWindow.setPosition(results[0].geometry.location);
+                    infoWindow.setContent(store_name);
+                    infoWindow.open(map);
+
+                } else {
+                    alert("MDFK Status Error: " + status);
+                }
+            }
+        );
 
     }
 
@@ -325,7 +394,10 @@
         <div>
             <div id="twzipcode"></div>
             <script>
-                $("#twzipcode").twzipcode();
+                $("#twzipcode").twzipcode({
+                    'countySel': '{{ county }}',
+                    'districtSel': '{{ district }}'
+                });
                 var array = $("#twzipcode").twzipcode('get', 'county,district');
                 $.ajax({
                     type: "POST",
@@ -348,15 +420,15 @@
             </script>
         </div>
         <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
-            <option value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
+            <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
 
         <select onchange="getCompanyVal()" id="jobSelect" name="jobSelect">{% for company_item in company_filter %}
-            <option value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
+            <option id="{{ company_item.id }}" value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
         </select>
 
         <select onchange="getStoreVal()" id="storeSelect" name="storeSelect">{% for store_item in store_filter %}
-            <option value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
+            <option id="{{ store_item.id }}" value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
                 - {{ store_item.convenience_name }}</option> {% endfor %}
         </select>
 

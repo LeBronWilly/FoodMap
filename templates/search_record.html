@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>搜尋紀錄</title>
+    <title>我的收藏</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -115,6 +115,7 @@
         }
     </style>
     <script type="text/javascript">
+
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
             var actions = $("table td:last-child").html();
@@ -169,7 +170,7 @@
                     alert(number);
                     $.ajax({
                         type: "POST",
-                        url: "",
+                        url: "/search_record/",
                         data: {
                             'number': number, // from form
                             // all of this data is submitted via POST to your view.
@@ -197,28 +198,52 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>搜尋紀錄</h2></div>
+                <div class="col-sm-8"><h2>我的收藏</h2></div>
             </div>
         </div>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th style="display: none">編號</th>
+                <th>名稱</th>
                 <th>地址</th>
-                <th>範圍</th>
-                <th>時間</th>
                 <th>刪除</th>
             </tr>
             </thead>
             <tbody>
-            {% for record_item in record %}
+            {% for show_item  in show_filter %}
                 <tr>
-                    {#                    {% for key,value in item.items %}#}
-                    <td style="display: none">{{ record_item.id }}</td>
-                    <td>{{ record_item.address }}</td>
-                    <td>{{ record_item.range }}</td>
-                    <td>{{ record_item.time }}</td>
-                    {#                    {% endfor %}#}
+
+                    <td style="display: none">show{{ show_item.id }}</td>
+                    <td>{{ show_item.title }}</td>
+                    <td>{{ show_item.location }}</td>
+
+                    <td>
+                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
+                                class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% for company_item  in company_filter %}
+                <tr>
+
+                    <td style="display: none">company{{ company_item.id }}</td>
+                    <td>{{ company_item.jobname }}</td>
+                    <td>{{ company_item.jobaddress }}</td>
+
+                    <td>
+                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
+                                class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% for store_item  in store_filter %}
+                <tr>
+
+                    <td style="display: none">store{{ store_item.id }}</td>
+                    <td>{{ store_item.convenience_class }} - {{ store_item.convenience_name }}</td>
+                    <td>{{ store_item.convenience_address }}</td>
+
                     <td>
                         <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
                                 class="material-icons">&#xE872;</i></a>

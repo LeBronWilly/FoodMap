@@ -33,6 +33,7 @@
 </script>
 
 <script>
+
     src = "jquery-3.2.1.min.js";
     //MAP CODE//////////////////////////////////////////////////////////////////////
     var map, geocoder, address;
@@ -103,97 +104,177 @@
     }
 
 
-    function getShowVal() {
-        var a = document.getElementById("showSelect");
-        var show_name = a.options[a.selectedIndex].value
-        alert(show_name)
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: {
-                'show_name': show_name, // from form
-                // all of this data is submitted via POST to your view.
-                // in django, request.POST['background-color']
-            },
-            headers: {
-                'X-CSRFTOKEN': "{{ csrf_token }}",
-            },
-            success: function (data) {
+    var show_add;
+    var show_name;
+    var company_add;
+    var company_name;
+    var store_add;
+    var store_name;
 
-            }
-        });
+    function getShowVal() {
+        var type = 1
+        var show = document.getElementById("showSelect");
+        show_add = show.options[show.selectedIndex].value;
+        show_name = show.options[show.selectedIndex].text;
+        alert(show_add);
+        alert(show_name);
+        {#$.ajax({#}
+        {#    type: "POST",#}
+        {#    url: "",#}
+        {#    data: {#}
+        {#        'type': type,// from form#}
+        {#        'show_id': show_id,#}
+        {#        'show_name': show_name,#}
+        {#        // all of this data is submitted via POST to your view.#}
+        {#        // in django, request.POST['background-color']#}
+        {#    },#}
+        {#    headers: {#}
+        {#        'X-CSRFTOKEN': "{{ csrf_token }}",#}
+        {#    },#}
+        {#    success: function (data) {#}
+        {##}
+        {#    }#}
+        {#});#}
 
     }
 
     function getCompanyVal() {
-        var a = document.getElementById("jobSelect");
-        var company_name = a.options[a.selectedIndex].value
+        var type = 2
+        var company = document.getElementById("jobSelect");
+        company_add = company.options[company.selectedIndex].value
+        company_name = company.options[company.selectedIndex].text
+        alert(company_add)
         alert(company_name)
 
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: {
-                'company_name': company_name, // from form
-                // all of this data is submitted via POST to your view.
-                // in django, request.POST['background-color']
-            },
-            headers: {
-                'X-CSRFTOKEN': "{{ csrf_token }}",
-            },
-            success: function (data) {
-
-            }
-        });
+        {#$.ajax({#}
+        {#    type: "POST",#}
+        {#    url: "",#}
+        {#    data: {#}
+        {#        'type': type,// from form#}
+        {#        'company_id': company_id,#}
+        {#        'company_name': company_name#}
+        {#        // all of this data is submitted via POST to your view.#}
+        {#        // in django, request.POST['background-color']#}
+        {#    },#}
+        {#    headers: {#}
+        {#        'X-CSRFTOKEN': "{{ csrf_token }}",#}
+        {#    },#}
+        {#    success: function (data) {#}
+        {##}
+        {#    }#}
+        {#});#}
 
     }
 
     function getStoreVal() {
-        var a = document.getElementById("storeSelect");
-        var store_name = a.options[a.selectedIndex].value
+        var type = 3
+        var store = document.getElementById("storeSelect");
+        store_add = store.options[store.selectedIndex].value
+        store_name = store.options[store.selectedIndex].text
+        alert(store_add)
         alert(store_name)
 
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: {
-                'store_name': store_name, // from form
-                // all of this data is submitted via POST to your view.
-                // in django, request.POST['background-color']
-            },
-            headers: {
-                'X-CSRFTOKEN': "{{ csrf_token }}",
-            },
-            success: function (data) {
-
-            }
-        });
+        {#$.ajax({#}
+        {#    type: "POST",#}
+        {#    url: "",#}
+        {#    data: {#}
+        {#        'type': type,// from form#}
+        {#        'store_id': store_id,#}
+        {#        'store_name': store_name#}
+        {#        // all of this data is submitted via POST to your view.#}
+        {#        // in django, request.POST['background-color']#}
+        {#    },#}
+        {#    headers: {#}
+        {#        'X-CSRFTOKEN': "{{ csrf_token }}",#}
+        {#    },#}
+        {#    success: function (data) {#}
+        {##}
+        {#    }#}
+        {#});#}
 
     }
 
-    var select = document.querySelector('#showSelect');
-    select.onchange = function (event) {
-        console.log(event);
-        var value = event.target.value;
-        alert(value);
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: {
-                'value': value, // from form
-                // all of this data is submitted via POST to your view.
-                // in django, request.POST['background-color']
-            },
-            headers: {
-                'X-CSRFTOKEN': "{{ csrf_token }}",
-            },
-            success: function (data) {
+    function add2collection() {
+        {#var show = document.getElementById("showSelect");#}
+        {#var show_id = show.options[show.selectedIndex].value;#}
+        {#var show_name = show.options[show.selectedIndex].text;#}
+        if (show_id && show_name) {
+            alert(show_id);
+            alert(show_name);
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    //'type_c': type,
+                    'show_id_c': show_id,
+                    'show_name_c': show_name,
+                    // all of this data is submitted via POST to your view.
+                    // in django, request.POST['background-color']
+                },
+                headers: {
+                    'X-CSRFTOKEN': "{{ csrf_token }}",
+                },
+                success: function (data) {
 
-            }
-        });
+                }
+            });
+
+        }
+
+        {#var company = document.getElementById("jobSelect");#}
+        {#var company_id = company.options[company.selectedIndex].value;#}
+        {#var company_name = company.options[company.selectedIndex].text;#}
+        if (company_id && company_name) {
+            alert(company_id);
+            alert(company_name);
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    //'type_c': type,
+                    'company_id_c': company_id,
+                    'company_name_c': company_name,
+                    // all of this data is submitted via POST to your view.
+                    // in django, request.POST['background-color']
+                },
+                headers: {
+                    'X-CSRFTOKEN': "{{ csrf_token }}",
+                },
+                success: function (data) {
+
+                }
+            });
+
+        }
+
+        {#var store = document.getElementById("storeSelect");#}
+        {#var store_id = store.options[store.selectedIndex].value;#}
+        {#var store_name = store.options[store.selectedIndex].text;#}
+        if (store_id && store_name) {
+            alert(store_id);
+            alert(store_name);
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    //'type_c': type,
+                    'store_id_c': store_id,
+                    'store_name_c': store_name,
+                    // all of this data is submitted via POST to your view.
+                    // in django, request.POST['background-color']
+                },
+                headers: {
+                    'X-CSRFTOKEN': "{{ csrf_token }}",
+                },
+                success: function (data) {
+
+                }
+            });
+
+        }
+
+
     }
-
-
 </script>
 
 <body>
@@ -267,18 +348,18 @@
             </script>
         </div>
         <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
-            <option value={{ show_item.title }}>{{ show_item.title }}</option> {% endfor %}
-        </select>
-        <select onchange="getStoreVal()" form="countrySelection" id="storeSelect" name="storeSelect">
-            {% for store_item in store_filter %}
-                <option value="{{ store_item.convenience_name }}">{{ store_item.convenience_name }}
-                    - {{ store_item.convenience_name }}</option> {% endfor %}
+            <option value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
 
-        <select onchange="getCompanyVal()" form="countrySelection" id="jobSelect" name="jobSelect">
-            {% for company_item in company_filter %}
-                <option value={{ company_item.jobname }}>{{ company_item.jobname }}</option> {% endfor %}
+        <select onchange="getCompanyVal()" id="jobSelect" name="jobSelect">{% for company_item in company_filter %}
+            <option value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
         </select>
+
+        <select onchange="getStoreVal()" id="storeSelect" name="storeSelect">{% for store_item in store_filter %}
+            <option value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
+                - {{ store_item.convenience_name }}</option> {% endfor %}
+        </select>
+
 
         {#        <form action="/add2collection" id="countrySelection" method="post">#}
         {#            {% csrf_token %}#}
@@ -302,34 +383,36 @@
         {#        </form>#}
 
 
+        {#    <div>#}
+        {#        <form action='actionUrl' method='GET'>#}
+        {#            <button type='submit'>加入收藏</button>#}
+        {#        </form>#}
+        {#    </div>#}
+
+
+        <div id="map" class="inner-form">
+            {#            <div id="map"></div>#}
+        </div>
+
+        <!--
+                <div class="inner-form">
+                    <div class="input-field third-wrap">
+                        <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
+                    </div>
+                </div>
+                <div class="inner-form">
+                    <div class="input-field third-wrap">
+                        <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
+                    </div>
+                </div>
+        -->
+
     </form>
 
-
-    {#    <div>#}
-    {#        <form action='actionUrl' method='GET'>#}
-    {#            <button type='submit'>加入收藏</button>#}
-    {#        </form>#}
-    {#    </div>#}
-
-
-    <div id="map" class="inner-form">
-        {#            <div id="map"></div>#}
+    <div>
+        <button onclick="add2collection()">加入收藏</button>
     </div>
 
-    <!--
-            <div class="inner-form">
-                <div class="input-field third-wrap">
-                    <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
-                </div>
-            </div>
-            <div class="inner-form">
-                <div class="input-field third-wrap">
-                    <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
-                </div>
-            </div>
-    -->
-
-    </form>
 </div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </body>

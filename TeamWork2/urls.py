@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from index.views import index, login, register, add2collection
+from index.views import index
 from search_record.views import search_record
 from add2gel.views import add2gel, transfer, batch_transfer
 
@@ -29,7 +29,6 @@ urlpatterns = [
     # path('index/login/', login),
     # path('index/register/', register),
     path('search_record/', search_record),
-    path('add2collection/', add2collection),
 
     # path('index/login/', TemplateView.as_view(template_name='home.html')),
     path('', include('users.urls')),

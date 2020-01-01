@@ -217,41 +217,47 @@
 
 
     function add2collection() {
-        show = document.getElementById("showSelect");
-        show_value = show.options[show.selectedIndex].value;
-        add_show_id = show.options[show.selectedIndex].id;
-        company = document.getElementById("jobSelect");
-        company_value = company.options[company.selectedIndex].value;
-        add_company_id = company.options[company.selectedIndex].id;
-        store = document.getElementById("storeSelect");
-        store_value = store.options[store.selectedIndex].value;
-        add_store_id = store.options[store.selectedIndex].id;
+        if ({{ user_id }} == 0){
+            alert("請先登入");
+        }
+        else{
+            show = document.getElementById("showSelect");
+            show_value = show.options[show.selectedIndex].value;
+            add_show_id = show.options[show.selectedIndex].id;
+            company = document.getElementById("jobSelect");
+            company_value = company.options[company.selectedIndex].value;
+            add_company_id = company.options[company.selectedIndex].id;
+            store = document.getElementById("storeSelect");
+            store_value = store.options[store.selectedIndex].value;
+            add_store_id = store.options[store.selectedIndex].id;
 
-        if (show_value == 0 && company_value == 0 && store_value == 0) {
-            alert("請先選擇至少一項")
-        } else {
-            alert("已加入")
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    //'type_c': type,
-                    'show_id_c': add_show_id,
-                    'show_name_c': show_name,
-                    'company_id_c': add_company_id,
-                    'company_name_c': company_name,
-                    'store_id_c': add_store_id,
-                    'store_name_c': store_name,
-                    // all of this data is submitted via POST to your view.
-                    // in django, request.POST['background-color']
-                },
-                headers: {
-                    'X-CSRFTOKEN': "{{ csrf_token }}",
-                },
-                success: function (data) {
+            if (show_value == 0 && company_value == 0 && store_value == 0) {
+                alert("請先選擇至少一項")
+            } else {
+                alert("已加入")
+                $.ajax({
+                    type: "POST",
+                    url: "",
+                    data: {
+                        //'type_c': type,
+                        'show_id_c': add_show_id,
+                        'show_name_c': show_name,
+                        'company_id_c': add_company_id,
+                        'company_name_c': company_name,
+                        'store_id_c': add_store_id,
+                        'store_name_c': store_name,
+                        // all of this data is submitted via POST to your view.
+                        // in django, request.POST['background-color']
+                    },
+                    headers: {
+                        'X-CSRFTOKEN': "{{ csrf_token }}",
+                    },
+                    success: function (data) {
 
-                }
-            });
+                    }
+                });
+
+            }
 
         }
 

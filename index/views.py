@@ -93,6 +93,7 @@ def index(request):
         # return render(request, 'index.html', locals())
 
     else:
+        user_id = 0
         county = request.POST.get('county')
         district = request.POST.get('district')
 

@@ -167,7 +167,7 @@
                 const tr = $(this).parents("tr");
                 $(tr).each(function () {
                     var number = $(this).find('td').eq(0).text()
-                    alert(number);
+                    {#alert(number);#}
                     $.ajax({
                         type: "POST",
                         url: "/search_record/",

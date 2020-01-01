@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from search_record.models import SearchRecord
 from DBMgr.models import Company, ConvenienceStore, show, favoriteshow, favoritecompany, favoritestore
 from django.db.models import Q
 

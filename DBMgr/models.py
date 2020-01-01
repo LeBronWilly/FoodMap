@@ -2,7 +2,7 @@
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
@@ -11,12 +11,10 @@ from TeamWork2 import settings
 from django.utils import timezone
 
 
+
 class Company(models.Model):
-    id = models.IntegerField(primary_key=True)
     jobname = models.TextField(db_column='jobName', blank=True, null=True)  # Field name made lowercase.
     jobaddress = models.TextField(db_column='jobAddress', blank=True, null=True)  # Field name made lowercase.
-    joblatitude = models.TextField(default="0.0")
-    joblongitude = models.TextField(default="0.0")
 
     class Meta:
         managed = True
@@ -24,30 +22,23 @@ class Company(models.Model):
 
 
 class ConvenienceStore(models.Model):
-    id = models.IntegerField(primary_key=True)
     convenience_class = models.TextField(blank=True, null=True)
     convenience_name = models.TextField(blank=True, null=True)
     convenience_address = models.TextField(blank=True, null=True)
-    convenience_latitude = models.TextField(default="0.0")
-    convenience_longitude = models.TextField(default="0.0")
 
     class Meta:
         managed = True
-        db_table = 'convenience_store'
+        db_table = 'convenienceStore'
 
 
 class show(models.Model):
-    id = models.IntegerField(primary_key=True)
     title = models.TextField()
     location = models.TextField()
     locationName = models.TextField()
-    latitude = models.TextField(default="0.0")
-    longitude = models.TextField(default="0.0")
 
     class Meta:
         managed = True
         db_table = "show"
-
 
 # import json
 #
@@ -59,14 +50,7 @@ class show(models.Model):
 #     for info in item['showInfo']:
 #         location = info['location']
 #         locationName = info['locationName']
-#         latitude = info['latitude']
-#         longitude = info['longitude']
-#
-#         if latitude != None:
-#             show.objects.create(title=title, location=location, locationName=locationName, latitude=latitude,
-#                                 longitude=longitude)
-#         else:
-#             show.objects.create(title=title, location=location, locationName=locationName)
+#         show.objects.create(title=title, location=location, locationName=locationName,)
 
 
 class favoriteshow(models.Model):

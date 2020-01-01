@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import SearchRecord
 from DBMgr.models import show, ConvenienceStore, Company, favoriteshow, favoritecompany, favoritestore
 # Create your views here.
 

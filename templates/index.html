@@ -217,10 +217,13 @@
 
 
     function add2collection() {
-        if ({{ user_id }} == 0){
+        if ({{ user_id }} == 0
+    )
+        {
             alert("請先登入");
         }
-        else{
+    else
+        {
             show = document.getElementById("showSelect");
             show_value = show.options[show.selectedIndex].value;
             add_show_id = show.options[show.selectedIndex].id;
@@ -414,23 +417,25 @@
             </div>
         </div>
 
-
-        <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
-            <option value=0 selected disabled hidden>請選擇</option>
-            <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
-        </select>
-
+        <font color="white">軟體產業：</font>
         <select onchange="getCompanyVal()" id="jobSelect" name="jobSelect">{% for company_item in company_filter %}
-            <option value=0 selected disabled hidden>請選擇</option>
+            <option value=0 selected disabled hidden>請選擇（軟體產業）</option>
             <option id="{{ company_item.id }}"
                     value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
         </select>
-
+        <br>
+        <font color="white">便利商店：</font>
         <select onchange="getStoreVal()" id="storeSelect" name="storeSelect">{% for store_item in store_filter %}
-            <option value=0 selected disabled hidden>請選擇</option>
+            <option value=0 selected disabled hidden>請選擇（便利商店）</option>
             <option id="{{ store_item.id }}"
                     value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
                 - {{ store_item.convenience_name }}</option> {% endfor %}
+        </select>
+        <br>
+        <font color="white">展覽&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：</font>
+        <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
+            <option value=0 selected disabled hidden>請選擇（展覽）</option>
+            <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
 
 

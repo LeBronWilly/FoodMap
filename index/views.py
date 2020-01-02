@@ -38,32 +38,32 @@ def index(request):
         #     print("下拉name= " + str(get_show_name))
 
         # get_show_type_c = request.POST.get('type_c')
-        get_show_id_c = request.POST.get('show_id_c')
-        get_show_name_c = request.POST.get('show_name_c')
-        if get_show_id_c and get_show_name_c:
-            print("加入收藏id= " + str(get_show_id_c))
-            print("加入收藏name= " + str(get_show_name_c))
-            favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
-            favorite_show.save()
-
-        # get_company_type_c = request.POST.get('type_c')
-        get_company_id_c = request.POST.get('company_id_c')
-        get_company_name_c = request.POST.get('company_name_c')
-        if get_company_id_c and get_company_name_c:
-            print("加入收藏id= " + str(get_company_id_c))
-            print("加入收藏name= " + str(get_company_name_c))
-            favorite_company = favoritecompany(favorite_user_id=user_id, favorite_id=get_company_id_c)
-            favorite_company.save()
-
-        get_store_id_c = request.POST.get('store_id_c')
-        get_store_name_c = request.POST.get('store_name_c')
-        if get_store_id_c and get_store_name_c:
-            print("加入收藏id= " + str(get_store_id_c))
-            print("加入收藏name= " + str(get_store_name_c))
-            favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
-            favorite_store.save()
-
-        return render(request, 'index.html', locals())
+        # get_show_id_c = request.POST.get('show_id_c')
+        # get_show_name_c = request.POST.get('show_name_c')
+        # if get_show_id_c and get_show_name_c:
+        #     print("加入收藏id= " + str(get_show_id_c))
+        #     print("加入收藏name= " + str(get_show_name_c))
+        #     favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
+        #     favorite_show.save()
+        #
+        # # get_company_type_c = request.POST.get('type_c')
+        # get_company_id_c = request.POST.get('company_id_c')
+        # get_company_name_c = request.POST.get('company_name_c')
+        # if get_company_id_c and get_company_name_c:
+        #     print("加入收藏id= " + str(get_company_id_c))
+        #     print("加入收藏name= " + str(get_company_name_c))
+        #     favorite_company = favoritecompany(favorite_user_id=user_id, favorite_id=get_company_id_c)
+        #     favorite_company.save()
+        #
+        # get_store_id_c = request.POST.get('store_id_c')
+        # get_store_name_c = request.POST.get('store_name_c')
+        # if get_store_id_c and get_store_name_c:
+        #     print("加入收藏id= " + str(get_store_id_c))
+        #     print("加入收藏name= " + str(get_store_name_c))
+        #     favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
+        #     favorite_store.save()
+        #
+        # return render(request, 'index.html', locals())
 
         # 當登入後跳轉到首頁 地址和範圍都為空時，傳空值到template，
         # 沒傳值會報錯
@@ -83,15 +83,15 @@ def index(request):
         #         favorite_store = favoritestore(favorite_id=get_show_id,
         #                                        favorite_user_id=user_id)
         #         favorite_store.save()
-        # search_record = SearchRecord(username=username,
+        # collection = SearchRecord(username=username,
         #                              address=address,
         #                              range=rge)
-        # search_record.save()
+        # collection.save()
         # if get_delete_number:
         #     s2 = SearchRecord(id=get_delete_number, username=username)
         #     s2.delete()
         # return render(request, 'index.html', locals())
-
+        return render(request, 'index.html', locals())
     else:
         user_id = 0
         county = request.POST.get('county')

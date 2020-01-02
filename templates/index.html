@@ -240,7 +240,7 @@
                 alert("已加入")
                 $.ajax({
                     type: "POST",
-                    url: "",
+                    url: "/collection/",
                     data: {
                         //'type_c': type,
                         'show_id_c': add_show_id,
@@ -409,7 +409,7 @@
 
             <div class="input-field third-wrap">
                 <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()">
-                    <a href="/search_record/" style="color:white; text-decoration:none;">
+                    <a href="/collection/" style="color:white; text-decoration:none;">
                         我的收藏
                     </a>
                 </button>

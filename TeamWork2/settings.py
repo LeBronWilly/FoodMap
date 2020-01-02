@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'DBMgr',
     'index',
-    'search_record',
+    'collection',
     'users.apps.UsersConfig',
     'add2gel',
 

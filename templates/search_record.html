@@ -170,7 +170,7 @@
                     {#alert(number);#}
                     $.ajax({
                         type: "POST",
-                        url: "/search_record/",
+                        url: "/collection/",
                         data: {
                             'number': number, // from form
                             // all of this data is submitted via POST to your view.
@@ -219,7 +219,7 @@
                     <td>{{ show_item.location }}</td>
 
                     <td>
-                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
+                        <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i
                                 class="material-icons">&#xE872;</i></a>
                     </td>
                 </tr>
@@ -232,7 +232,7 @@
                     <td>{{ company_item.jobaddress }}</td>
 
                     <td>
-                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
+                        <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i
                                 class="material-icons">&#xE872;</i></a>
                     </td>
                 </tr>
@@ -245,7 +245,7 @@
                     <td>{{ store_item.convenience_address }}</td>
 
                     <td>
-                        <a href="/search_record" class="delete" title="刪除" data-toggle="tooltip"><i
+                        <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i
                                 class="material-icons">&#xE872;</i></a>
                     </td>
                 </tr>

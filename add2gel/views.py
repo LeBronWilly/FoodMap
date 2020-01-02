@@ -1,6 +1,6 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
-from DBMgr.models import Company, ConvenienceStore, show
+from open_data.models import Company, ConvenienceStore, show
 import googlemaps
 
 

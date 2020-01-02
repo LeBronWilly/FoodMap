@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from DBMgr.models import Company, ConvenienceStore, show, favoriteshow, favoritecompany, favoritestore
+from open_data.models import Company, ConvenienceStore, show
+from collection.models import favoriteshow, favoritecompany, favoritestore
 from django.db.models import Q
 
 
@@ -10,7 +11,6 @@ from django.db.models import Q
 def index(request):
     if request.user.is_authenticated:
         user_id = request.user.id
-
 
         # address = request.POST.get('address')
         # rge = request.POST.get('range')
@@ -30,38 +30,29 @@ def index(request):
 
                                         Q(convenience_address__icontains=district)).distinct()
 
-        # get_type = request.POST.get('type')
-        # get_show_id = request.POST.get('show_id')
-        # get_show_name = request.POST.get('show_name')
-        # if get_show_id and get_show_name:
-        #     print("下拉id= " + str(get_show_id))
-        #     print("下拉name= " + str(get_show_name))
+        get_show_id_c = request.POST.get('show_id_c')
+        get_show_name_c = request.POST.get('show_name_c')
+        if get_show_id_c and get_show_name_c:
+            print("加入收藏id= " + str(get_show_id_c))
+            print("加入收藏name= " + str(get_show_name_c))
+            favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
+            favorite_show.save()
 
-        # get_show_type_c = request.POST.get('type_c')
-        # get_show_id_c = request.POST.get('show_id_c')
-        # get_show_name_c = request.POST.get('show_name_c')
-        # if get_show_id_c and get_show_name_c:
-        #     print("加入收藏id= " + str(get_show_id_c))
-        #     print("加入收藏name= " + str(get_show_name_c))
-        #     favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
-        #     favorite_show.save()
-        #
-        # # get_company_type_c = request.POST.get('type_c')
-        # get_company_id_c = request.POST.get('company_id_c')
-        # get_company_name_c = request.POST.get('company_name_c')
-        # if get_company_id_c and get_company_name_c:
-        #     print("加入收藏id= " + str(get_company_id_c))
-        #     print("加入收藏name= " + str(get_company_name_c))
-        #     favorite_company = favoritecompany(favorite_user_id=user_id, favorite_id=get_company_id_c)
-        #     favorite_company.save()
-        #
-        # get_store_id_c = request.POST.get('store_id_c')
-        # get_store_name_c = request.POST.get('store_name_c')
-        # if get_store_id_c and get_store_name_c:
-        #     print("加入收藏id= " + str(get_store_id_c))
-        #     print("加入收藏name= " + str(get_store_name_c))
-        #     favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
-        #     favorite_store.save()
+        get_company_id_c = request.POST.get('company_id_c')
+        get_company_name_c = request.POST.get('company_name_c')
+        if get_company_id_c and get_company_name_c:
+            print("加入收藏id= " + str(get_company_id_c))
+            print("加入收藏name= " + str(get_company_name_c))
+            favorite_company = favoritecompany(favorite_user_id=user_id, favorite_id=get_company_id_c)
+            favorite_company.save()
+
+        get_store_id_c = request.POST.get('store_id_c')
+        get_store_name_c = request.POST.get('store_name_c')
+        if get_store_id_c and get_store_name_c:
+            print("加入收藏id= " + str(get_store_id_c))
+            print("加入收藏name= " + str(get_store_name_c))
+            favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
+            favorite_store.save()
         #
         # return render(request, 'index.html', locals())
 

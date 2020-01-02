@@ -78,7 +78,7 @@
                         //督進圖釘
 
                     } else {
-                        alert("MDFK Status Error: " + status);
+                        alert("請先選擇區域");
                     }
                 }
             )
@@ -144,7 +144,7 @@
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(show_name);
-                    infoWindow.open(map);
+                    infoWindow.open(map, marker);
 
                 } else {
                     alert("MDFK Status Error: " + status);
@@ -175,7 +175,7 @@
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(company_name);
-                    infoWindow.open(map);
+                    infoWindow.open(map, marker);
 
                 } else {
                     alert("MDFK Status Error: " + status);
@@ -205,7 +205,7 @@
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(store_name);
-                    infoWindow.open(map);
+                    infoWindow.open(map, marker);
 
                 } else {
                     alert("MDFK Status Error: " + status);
@@ -240,7 +240,7 @@
                 alert("已加入")
                 $.ajax({
                     type: "POST",
-                    url: "/collection/",
+                    url: "",
                     data: {
                         //'type_c': type,
                         'show_id_c': add_show_id,
@@ -436,27 +436,26 @@
             <option value=0 selected disabled hidden>請選擇（展覽）</option>
             <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
-        <div>
-            <button class="button2" onclick="add2collection()" >加入收藏</button>
-        </div>
-<style>
-.button2{
-  height: 50px;
-  width: 100px;
-  background: #4272d7;
-  white-space: nowrap;
-  border-radius: .5px;
-  font-size: 20px;
-  color: #fff;
-  transition: all .2s ease-out, color .2s ease-out;
-  border: 0;
-  cursor: pointer;
-    }
-.dropdown1{
-  background: #4272d7;
-}
 
-</style>
+        <style>
+            .button2 {
+                height: 50px;
+                width: 100px;
+                background: #4272d7;
+                white-space: nowrap;
+                border-radius: .5px;
+                font-size: 20px;
+                color: #fff;
+                transition: all .2s ease-out, color .2s ease-out;
+                border: 0;
+                cursor: pointer;
+            }
+
+            .dropdown1 {
+                background: #4272d7;
+            }
+
+        </style>
 
         {#        <form action="/add2collection" id="countrySelection" method="post">#}
         {#            {% csrf_token %}#}
@@ -505,6 +504,9 @@
         -->
 
     </form>
+    <div>
+        <button class="button2" onclick="add2collection()">加入收藏</button>
+    </div>
 
 
 </div>

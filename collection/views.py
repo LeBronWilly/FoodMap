@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
-from DBMgr.models import show, ConvenienceStore, Company, favoriteshow, favoritecompany, favoritestore
+from open_data.models import show, ConvenienceStore, Company
+from collection.models import favoriteshow, favoritecompany, favoritestore
 # Create your views here.
 
 from django.views.generic import TemplateView
@@ -23,30 +24,7 @@ def collection(request):
     #     # return response
     if request.user.is_authenticated:
         user_id = request.user.id
-        get_show_id_c = request.POST.get('show_id_c')
-        get_show_name_c = request.POST.get('show_name_c')
-        if get_show_id_c and get_show_name_c:
-            print("加入收藏id= " + str(get_show_id_c))
-            print("加入收藏name= " + str(get_show_name_c))
-            favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
-            favorite_show.save()
 
-        # get_company_type_c = request.POST.get('type_c')
-        get_company_id_c = request.POST.get('company_id_c')
-        get_company_name_c = request.POST.get('company_name_c')
-        if get_company_id_c and get_company_name_c:
-            print("加入收藏id= " + str(get_company_id_c))
-            print("加入收藏name= " + str(get_company_name_c))
-            favorite_company = favoritecompany(favorite_user_id=user_id, favorite_id=get_company_id_c)
-            favorite_company.save()
-
-        get_store_id_c = request.POST.get('store_id_c')
-        get_store_name_c = request.POST.get('store_name_c')
-        if get_store_id_c and get_store_name_c:
-            print("加入收藏id= " + str(get_store_id_c))
-            print("加入收藏name= " + str(get_store_name_c))
-            favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
-            favorite_store.save()
 
         show_filter = show.objects.filter(show_related__favorite_user_id=user_id)
         # print(show_filter)
@@ -72,6 +50,7 @@ def collection(request):
                 i_int = int(i)
                 store_delete = favoritestore.objects.filter(favorite_user_id=user_id, favorite_id=i)
                 store_delete.delete()
+
         # show_delete = favoriteshow(favorite_id=get_delete_number)
         # show_delete.delete()
         # if 'show' in get_delete_number:
@@ -84,7 +63,7 @@ def collection(request):
         #     # company_delete.delete()
         #     # store_delete.delete()
 
-        return render(request, 'search_record.html', locals())
+        return render(request, 'collection.html', locals())
 
     else:
         return render(request, 'home.html', {'message': '未登入'})

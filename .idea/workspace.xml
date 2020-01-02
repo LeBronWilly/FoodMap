@@ -5,8 +5,25 @@
       <change beforePath="$PROJECT_DIR$/.idea/TeamWork2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TeamWork2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/migrations/0002_show.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/migrations/0002_show.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/migrations/0003_favoritecompany_favoriteshow_favoritestore.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/migrations/0003_favoritecompany_favoriteshow_favoritestore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMgr/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamWork2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamWork2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add2gel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/add2gel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collection.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +194,7 @@
       <workItem from="1577874479153" duration="1073000" />
       <workItem from="1577947963031" duration="5016000" />
       <workItem from="1577956305873" duration="761000" />
+      <workItem from="1577957341711" duration="6438000" />
     </task>
     <servers />
   </component>

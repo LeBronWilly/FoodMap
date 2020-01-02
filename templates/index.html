@@ -437,9 +437,26 @@
             <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
         <div>
-            <button onclick="add2collection()">加入收藏</button>
+            <button class="button2" onclick="add2collection()" >加入收藏</button>
         </div>
+<style>
+.button2{
+  height: 50px;
+  width: 100px;
+  background: #4272d7;
+  white-space: nowrap;
+  border-radius: .5px;
+  font-size: 20px;
+  color: #fff;
+  transition: all .2s ease-out, color .2s ease-out;
+  border: 0;
+  cursor: pointer;
+    }
+.dropdown1{
+  background: #4272d7;
+}
 
+</style>
 
         {#        <form action="/add2collection" id="countrySelection" method="post">#}
         {#            {% csrf_token %}#}

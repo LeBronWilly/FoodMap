@@ -5,17 +5,58 @@
   <title>SignUp</title>
 </head>
 <body>
-{% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
 
-{% block content %}
-<h2>Sign up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign up</button>
-</form>
-{% endblock %}
+<main>
+        <div class="wrapper">
+       <form class="form-signin" method="post">
+        <h2 class="form-signin-heading">Sign Up</h2>
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign up</button>
+        </form>
+        </div>
+      </main>
 </body>
 </html>
+
+<style>
+body {
+  background: url("../static/images/Search_001.png");
+  background-size: cover;
+}
+button{
+  background-color: #555555;
+  border: 1px solid #555555;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #555555;
+}
+.wrapper {
+margin-top: 80px;
+margin-bottom: 80px;
+}
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+
+.form-signin-heading,
+ .checkbox {
+   margin-bottom: 30px;
+ }
+
+</style>

@@ -22,7 +22,7 @@
     {#          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
     <style>
         #map {
-            height: 400px;
+            height: 600px;
             weight: 100%;
         }
     </style>
@@ -224,6 +224,11 @@
         }
     else
         {
+            if('{{ county }}' === "None" && '{{ district }}' === "None"){
+                alert('請先選擇縣市區域');
+            }
+
+
             show = document.getElementById("showSelect");
             show_value = show.options[show.selectedIndex].value;
             add_show_id = show.options[show.selectedIndex].id;
@@ -233,6 +238,10 @@
             store = document.getElementById("storeSelect");
             store_value = store.options[store.selectedIndex].value;
             add_store_id = store.options[store.selectedIndex].id;
+
+
+
+
 
             if (show_value == 0 && company_value == 0 && store_value == 0) {
                 alert("請先選擇至少一項")
@@ -345,8 +354,21 @@
 </script>
 
 <body>
-<div class="s01">
+<div align="right"; style="background:#3F3F3F; font-size:25px">
+        <!------------------------------------------------------------------------>
+        {% if user.is_authenticated %}
 
+            <font color="white" style="font-family:Microsoft JhengHei" >Hi {{ user.username }}!</font>
+                        <p></p>
+        <a href="{% url 'logout' %}" style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
+        {% else %}
+
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI" href="{% url 'login' %}">登入</a>
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI" href="{% url 'signup' %}">註冊</a>
+        {% endif %}
+        <!------------------------------------------------------------------------>
+</div>
+<div class="s01">
 
     <form action="" method="post">
         {% csrf_token %}
@@ -355,18 +377,9 @@
         </fieldset>
 
 
-        <!------------------------------------------------------------------------>
-        {% if user.is_authenticated %}
-            Hi {{ user.username }}!
-            <p><a href="{% url 'logout' %}">登出</a></p>
-        {% else %}
-            <p></p>
-            <a href="{% url 'login' %}">登入</a>
-            <a href="{% url 'signup' %}">註冊</a>
-        {% endif %}
-        <!------------------------------------------------------------------------>
 
-        <div class="inner-form">
+
+        <div class="inner-form" >
 
 
             {#            <div class="input-field first-wrap">#}
@@ -404,11 +417,11 @@
                 </script>
             </div>
             <div class="input-field third-wrap">
-                <button class="btn-search" type="submit" id="search_btn">搜尋</button>
+                <button class="btn-search" type="submit" id="search_btn" style="font-family:Microsoft JhengHei">搜尋</button>
             </div>
 
             <div class="input-field third-wrap">
-                <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()">
+                <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()" style="font-family:Microsoft JhengHei">
                     <a href="/collection/" style="color:white; text-decoration:none;">
                         我的收藏
                     </a>
@@ -416,14 +429,14 @@
             </div>
         </div>
 
-        <font color="white">軟體產業：</font>
+        <font color="white" style="font-family:Microsoft JhengHei" href="/collection/">軟體產業：</font>
         <select onchange="getCompanyVal()" id="jobSelect" name="jobSelect">{% for company_item in company_filter %}
             <option value=0 selected disabled hidden>請選擇（軟體產業）</option>
             <option id="{{ company_item.id }}"
                     value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
         </select>
         <br>
-        <font color="white">便利商店：</font>
+        <font color="white" style="font-family:Microsoft JhengHei">便利商店：</font>
         <select onchange="getStoreVal()" id="storeSelect" name="storeSelect">{% for store_item in store_filter %}
             <option value=0 selected disabled hidden>請選擇（便利商店）</option>
             <option id="{{ store_item.id }}"
@@ -431,7 +444,7 @@
                 - {{ store_item.convenience_name }}</option> {% endfor %}
         </select>
         <br>
-        <font color="white">展覽&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：</font>
+        <font color="white" style="font-family:Microsoft JhengHei">展覽&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：</font>
         <select onchange="getShowVal()" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}
             <option value=0 selected disabled hidden>請選擇（展覽）</option>
             <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
@@ -484,12 +497,6 @@
         {#            <button type='submit'>加入收藏</button>#}
         {#        </form>#}
         {#    </div>#}
-
-
-        <div id="map" class="inner-form">
-            {#            <div id="map"></div>#}
-        </div>
-
         <!--
                 <div class="inner-form">
                     <div class="input-field third-wrap">
@@ -502,14 +509,12 @@
                     </div>
                 </div>
         -->
-
     </form>
-    <div>
-        <button class="button2" onclick="add2collection()">加入收藏</button>
-    </div>
-
-
 </div>
+    <div align="right"; style="background:#3F3F3F; font-size:25px">
+        <button class="button2" onclick="add2collection()" style="font-family:Microsoft JhengHei">加入收藏</button>
+    </div>
+<div id="map" class="inner-form"></div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </body>
 </html>

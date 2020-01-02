@@ -454,13 +454,13 @@ legend {
 }
 
 .s01 {
-  min-height: 100vh;
+  min-height: 75vh;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      align-items: center;
+      /*align-items: center;*/
   font-family: 'Poppins', sans-serif;
   background: url("../images/Search_001.png");
   background-size: cover;

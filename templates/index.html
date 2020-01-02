@@ -358,12 +358,11 @@
         <!------------------------------------------------------------------------>
         {% if user.is_authenticated %}
             Hi {{ user.username }}!
-            <p><a href="{% url 'logout' %}">logout</a></p>
-            <p><a href="{% url 'password_reset' %}">reset password</a></p>
+            <p><a href="{% url 'logout' %}">登出</a></p>
         {% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'login' %}">login</a>
-            <a href="{% url 'signup' %}">signup</a>
+            <p></p>
+            <a href="{% url 'login' %}">登入</a>
+            <a href="{% url 'signup' %}">註冊</a>
         {% endif %}
         <!------------------------------------------------------------------------>
 
@@ -437,6 +436,9 @@
             <option value=0 selected disabled hidden>請選擇（展覽）</option>
             <option id="{{ show_item.id }}" value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
         </select>
+        <div>
+            <button onclick="add2collection()">加入收藏</button>
+        </div>
 
 
         {#        <form action="/add2collection" id="countrySelection" method="post">#}
@@ -487,9 +489,6 @@
 
     </form>
 
-    <div>
-        <button onclick="add2collection()">加入收藏</button>
-    </div>
 
 </div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

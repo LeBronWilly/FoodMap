@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'index',
     'collection',
     'users.apps.UsersConfig',
+    'add2gel',
 
 ]
 

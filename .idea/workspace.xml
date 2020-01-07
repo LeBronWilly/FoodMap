@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TeamWork2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TeamWork2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamWork2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamWork2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamWork2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TeamWork2/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/add2gel/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_interpreter/Lib/site-packages/django/contrib/admin/sites.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_interpreter/Lib/site-packages/django/contrib/admin/sites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_done.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_form.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -198,8 +176,6 @@
       <workItem from="1577947963031" duration="5016000" />
       <workItem from="1577956305873" duration="761000" />
       <workItem from="1577957341711" duration="18632000" />
-      <workItem from="1578386036049" duration="3058000" />
-      <workItem from="1578399445225" duration="1249000" />
     </task>
     <servers />
   </component>

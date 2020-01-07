@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from index.views import index
 from collection.views import collection
-from add2gel.views import add2gel, transfer, batch_transfer
 
 # jojo的女兒們
 from django.urls import include
@@ -33,8 +32,5 @@ urlpatterns = [
     # path('index/login/', TemplateView.as_view(template_name='home.html')),
     path('', include('users.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('add2gel/', add2gel),
-    path('add2gel/transfer/', transfer),
-    path('add2gel/batch_trans/', batch_transfer),
 
 ]

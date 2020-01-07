@@ -33,6 +33,8 @@
 </script>
 
 <script>
+    alert('{{ message }}')
+
 
     src = "jquery-3.2.1.min.js";
     //MAP CODE//////////////////////////////////////////////////////////////////////
@@ -230,17 +232,20 @@
 
 
             show = document.getElementById("showSelect");
-            show_value = show.options[show.selectedIndex].value;
+            {#show_value = show.options[show.selectedIndex].value;#}
+            show_value = $('label[for="showSelect"]').text();
             add_show_id = show.options[show.selectedIndex].id;
             company = document.getElementById("jobSelect");
-            company_value = company.options[company.selectedIndex].value;
+            {#company_value = company.options[company.selectedIndex].value;#}
+            company_value = $('label[for="jobSelect"]').text();
             add_company_id = company.options[company.selectedIndex].id;
             store = document.getElementById("storeSelect");
-            store_value = store.options[store.selectedIndex].value;
+            {#store_value = store.options[store.selectedIndex].value;#}
+            store_value = $('label[for="storeSelect"]').text();
             add_store_id = store.options[store.selectedIndex].id;
 
 
-            if (show_value == 0 && company_value == 0 && store_value == 0) {
+            if (show_value == '請選擇（展覽）' && company_value == '請選擇（軟體產業）' && store_value == '請選擇（便利商店）') {
                 alert("請先選擇至少一項")
             } else {
                 alert("已加入")

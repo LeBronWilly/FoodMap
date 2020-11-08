@@ -11,6 +11,7 @@ Django 2.2.6
 ```Python
 pip install Pillow
 pip install requests
+pip install django==2.2.6
 pip install django-import-export
 pip install django-model-utils
 pip install djangorestframework

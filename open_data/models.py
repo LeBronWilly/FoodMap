@@ -40,6 +40,14 @@ class show(models.Model):
         managed = True
         db_table = "show"
 
+class Restaurant(models.Model):
+    restaurant_name = models.TextField()
+    restaurant_address = models.TextField()
+
+    class Meta:
+        managed = True
+        db_table = "restaurant"
+
 # import json
 #
 # input_file = open('SearchShowAction.json',encoding="utf-8")

@@ -1,22 +1,37 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from open_data.models import Company, ConvenienceStore, show
+from open_data.models import Company, ConvenienceStore, show, Restaurant
 from collection.models import favoriteshow, favoritecompany, favoritestore
 from django.db.models import Q
-
-
+from areas.models import Country
+from areas.models import City
 # Create your views here.
 
 
 def index(request):
+    countrys = Country.objects.all().distinct()
+
+    citys_2 = City.objects.filter(country_id=2).distinct()
+    citys_3 = City.objects.filter(country_id=3).distinct()
+
+    county = request.POST.get('county')
+    district = request.POST.get('district')
+    chose_area = request.POST.get('chose_area')
+
+    print(county,district,chose_area)
+    if county and district:
+        Restaurants_all = Restaurant.objects.all()
+        Restaurant_filter = Restaurants_all.filter(Q(restaurant_address__icontains=county) &
+                                Q(restaurant_address__icontains=district)).distinct()
+
     if request.user.is_authenticated:
         user_id = request.user.id
 
         # address = request.POST.get('address')
         # rge = request.POST.get('range')
 
-        county = request.POST.get('county')
-        district = request.POST.get('district')
+        # county = request.POST.get('county')
+        # district = request.POST.get('district')
 
         company = Company.objects.all()
         Show = show.objects.all()
@@ -53,40 +68,12 @@ def index(request):
             print("加入收藏name= " + str(get_store_name_c))
             favorite_store = favoritestore(favorite_user_id=user_id, favorite_id=get_store_id_c)
             favorite_store.save()
-        #
-        # return render(request, 'index.html', locals())
 
-        # 當登入後跳轉到首頁 地址和範圍都為空時，傳空值到template，
-        # 沒傳值會報錯
-        # if not address:
-        #     if not rge:
-        #         return render(request, 'index.html', locals())
-        # else:
-        #     if get_type == 1:
-        #         favorite_show = favoriteshow(favorite_id=get_show_id,
-        #                                      favorite_user_id=user_id)
-        #         favorite_show.save()
-        #     elif get_type == 2:
-        #         favorite_company = favoritecompany(favorite_id=get_show_id,
-        #                                            favorite_user_id=user_id)
-        #         favorite_company.save()
-        #     elif get_type == 3:
-        #         favorite_store = favoritestore(favorite_id=get_show_id,
-        #                                        favorite_user_id=user_id)
-        #         favorite_store.save()
-        # collection = SearchRecord(username=username,
-        #                              address=address,
-        #                              range=rge)
-        # collection.save()
-        # if get_delete_number:
-        #     s2 = SearchRecord(id=get_delete_number, username=username)
-        #     s2.delete()
-        # return render(request, 'index.html', locals())
         return render(request, 'index.html', locals())
     else:
         user_id = 0
-        county = request.POST.get('county')
-        district = request.POST.get('district')
+        # county = request.POST.get('county')
+        # district = request.POST.get('district')
 
         company = Company.objects.all()
         Show = show.objects.all()

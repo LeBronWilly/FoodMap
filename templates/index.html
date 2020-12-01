@@ -20,12 +20,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="author" content="colorlib.com"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
+
+
     {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"#}
     {#          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
     <style>
         #map {
             height: 600px;
             weight: 100%;
+        }
+        .CountryCss {
+            font-family: 微軟正黑體;
+            background: #D0D0D0;
+            color: black;
+            height: 60px;
+            font-size: 25px;
+            text-align: center;
+
+        }
+
+        .AreaCss {
+            font-family: 微軟正黑體;
+            background: #D0D0D0;
+            color: black;
+            height: 60px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .ZipCSS {
+            font-family: 微軟正黑體;
+            background: #D0D0D0;
+            color: black;
+            height: 60px;
+            font-size: 25px;
+            text-align: center;
+        }
+        .btn-search{
+            height: 50px;
+            width: 60px;
+            background: #4272d7;
+            white-space: nowrap;
+            border-radius: .5px;
+            font-size: 20px;
+            color: #fff;
+            transition: all .2s ease-out, color .2s ease-out;
+            border: 0;
+            cursor: pointer;
+        }
+        .button2 {
+            height: 50px;
+            width: 100px;
+            background: #4272d7;
+            white-space: nowrap;
+            border-radius: .5px;
+            font-size: 20px;
+            color: #fff;
+            transition: all .2s ease-out, color .2s ease-out;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .select-box {
+            cursor: pointer;
+            position: relative;
+            max-width: 50em;
+            margin: 5em auto;
+            width: 100%;
+        }
+
+        .select,
+        .label {
+            color: #414141;
+            display: block;
+            font: 400 17px/2em 'Source Sans Pro', sans-serif;
+        }
+
+        .select {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            padding: 5px 0;
+            height: 40px;
+            opacity: 0;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            background: none transparent;
+            border: 0 none;
+        }
+
+        .select-box1 {
+            background: #ececec;
+        }
+
+        .label {
+            position: relative;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .open .label::after {
+            content: "▲";
+        }
+
+        .label::after {
+            content: "▼";
+            font-size: 12px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 5px 15px;
+            border-left: 5px solid #fff;
         }
     </style>
 </head>
@@ -35,14 +139,15 @@
 </script>
 
 <script>
-
     src = "jquery-3.2.1.min.js";
     //MAP CODE//////////////////////////////////////////////////////////////////////
     var map, geocoder, address, infoWindow;
 
     //map初始化
     function initMap() {
-        address = "{{ county }}{{ district }}";
+        address = "{{ county }}{{ district }}{{ chose_area }}";
+        {#address = "{JALAN PERUSAHAAN,   AUTOCITY,  13600,  PRAI,  PULAU PINANG}";#}
+
         console.log(address);
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15
@@ -274,84 +379,6 @@
             }
 
         }
-
-
-        {% comment %} if (show_id && show_name) {
-             alert(show_id);
-             alert(show_name);
-             $.ajax({
-                 type: "POST",
-                 url: "",
-                 data: {
-                     //'type_c': type,
-                     'show_id_c': show_id,
-                     'show_name_c': show_name,
-                     // all of this data is submitted via POST to your view.
-                     // in django, request.POST['background-color']
-                 },
-                 headers: {
-                     'X-CSRFTOKEN': "{{ csrf_token }}",
-                 },
-                 success: function (data) {
-
-                 }
-             });
-
-         }
-
-         var company = document.getElementById("jobSelect");
-         var company_id = company.options[company.selectedIndex].value;
-         var company_name = company.options[company.selectedIndex].text;
-         if (company_id && company_name) {
-             alert(company_id);
-             alert(company_name);
-             $.ajax({
-                 type: "POST",
-                 url: "",
-                 data: {
-                     //'type_c': type,
-                     'company_id_c': company_id,
-                     'company_name_c': company_name,
-                     // all of this data is submitted via POST to your view.
-                     // in django, request.POST['background-color']
-                 },
-                 headers: {
-                     'X-CSRFTOKEN': "{{ csrf_token }}",
-                 },
-                 success: function (data) {
-
-                 }
-             });
-
-         }{% endcomment %}
-
-        {% comment %}var store = document.getElementById("storeSelect");
-        var store_id = store.options[store.selectedIndex].value;
-        var store_name = store.options[store.selectedIndex].text;
-        if (store_id && store_name) {
-            alert(store_id);
-            alert(store_name);
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    //'type_c': type,
-                    'store_id_c': store_id,
-                    'store_name_c': store_name,
-                    // all of this data is submitted via POST to your view.
-                    // in django, request.POST['background-color']
-                },
-                headers: {
-                    'X-CSRFTOKEN': "{{ csrf_token }}",
-                },
-                success: function (data) {
-
-                }
-            });
-
-        }
-{% endcomment %}
-
     }
 </script>
 
@@ -378,55 +405,69 @@
     <form action="" method="post">
         {% csrf_token %}
         <fieldset>
-            <legend>HouseMap</legend>
+            <legend>FoodMap</legend>
         </fieldset>
 
 
         <div class="inner-form">
+                <div>
+                    <td class="ten wide">
+                        <select class="CountryCss"id="chose_country" name="chose_country" class="CountryCss">
+                            <option value="" disabled selected>選擇國家</option>
+                            {% for country in countrys %}
+                                <option value={{ country.id }}>{{country.country_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+                <div id="select_city_2" hidden="true">
+                    <td  class="ten wide">
+                        <select class="CountryCss" id="chose_area" name="county" >
+                            <option value="" disabled selected>選擇地區</option>
+                            {% for city in citys_2 %}
+                                    <option>{{city.city_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+
+                <div id="select_city_3" hidden="true">
+                    <td  class="ten wide" >
+                        <select class="CountryCss" id="chose_area" name="county">
+                            <option value="" disabled selected>選擇地區</option>
+                            {% for city in citys_3 %}
+                                    <option>{{city.city_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
 
 
-            {#            <div class="input-field first-wrap">#}
-            {#                <input name="address" type="text" placeholder="輸入地址"/>#}
-            {#            </div>#}
-            {#            <div class="input-field second-wrap">#}
-            {#                <input name="range" type="text" placeholder="設定範圍"/>#}
-            {#            </div>#}
-            {#            <div class="select-box">#}
-            {#                <font color="white" style="font-family:Microsoft JhengHei">展覽：</font>#}
-            {#                <label for="showSelect" class="label select-box1" value=0 selected disabled hidden><span#}
-            {#                        class="label-desc">請選擇（展覽）</span></label>#}
-            {#                <select class="select" onchange="getShowVal()" id="showSelect" name="showSelect">#}
-            {#                    {% for show_item in Show_filter %}#}
-            {#                        <option id="{{ show_item.id }}"#}
-            {#                                value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}#}
-            {#                </select>#}
-            {#            </div>#}
-
-
-            <div id="twzipcode"></div>
+            <div id="twzipcode" hidden="true"></div>
             <script>
                 $("#twzipcode").twzipcode({
                     'countySel': '{{ county }}',
                     'districtSel': '{{ district }}',
                     css: ['CountryCss', 'AreaCss', 'ZipCSS'],
                 });
-                var array = $("#twzipcode").twzipcode('get', 'county,district');
-                $.ajax({
-                    type: "POST",
-                    url: "",
-                    data: {
-                        'county': array[0],
-                        'district': array[1],// from form
-                        // all of this data is submitted via POST to your view.
-                        // in django, request.POST['background-color']
-                    },
-                    headers: {
-                        'X-CSRFTOKEN': "{{ csrf_token }}",
-                    },
-                    success: function (data) {
-
-                    }
-                });
+                {#var array = $("#twzipcode").twzipcode('get', 'county,district');#}
+                {#2020.11.20先拿掉 會導致post2次 #}
+                {#$.ajax({#}
+                {#    type: "POST",#}
+                {#    url: "",#}
+                {#    data: {#}
+                {#        'county': array[0],#}
+                {#        'district': array[1],// from form#}
+                {#        // all of this data is submitted via POST to your view.#}
+                {#        // in django, request.POST['background-color']#}
+                {#    },#}
+                {#    headers: {#}
+                {#        'X-CSRFTOKEN': "{{ csrf_token }}",#}
+                {#    },#}
+                {#    success: function (data) {#}
+                {##}
+                {#    }#}
+                {#});#}
 
 
             </script>
@@ -447,37 +488,47 @@
             </div>
         </div>
 
+{#        <div class="select-box">#}
+{#            <font color="white" style="font-family:Microsoft JhengHei" href="/collection/">軟體產業：</font>#}
+{#            <label for="jobSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（軟體產業）</span></label>#}
+{#            <select class="select" onchange="getCompanyVal()" id="jobSelect" name="jobSelect">#}
+{#                {% for company_item in company_filter %}#}
+{#                    <option id="{{ company_item.id }}"#}
+{#                            value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}#}
+{#            </select>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="select-box">#}
+{#            <font color="white" style="font-family:Microsoft JhengHei">便利商店：</font>#}
+{#            <label for="storeSelect" class="label select-box1" value=0 selected disabled hidden><span#}
+{#                    class="label-desc">請選擇（便利商店）</span></label>#}
+{#            <select class="select" onchange="getStoreVal()" id="storeSelect" name="storeSelect">#}
+{#                {% for store_item in store_filter %}#}
+{#                    <option id="{{ store_item.id }}"#}
+{#                            value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}#}
+{#                        - {{ store_item.convenience_name }}</option> {% endfor %}#}
+{#            </select>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="select-box">#}
+{#            <font color="white" style="font-family:Microsoft JhengHei">展覽：</font>#}
+{#            <label for="showSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（展覽）</span></label>#}
+{#            <select class="select" onchange="getShowVal()" id="showSelect" name="showSelect">#}
+{#                {% for show_item in Show_filter %}#}
+{#                    <option id="{{ show_item.id }}"#}
+{#                            value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}#}
+{#            </select>#}
+{#        </div>#}
+
         <div class="select-box">
-            <font color="white" style="font-family:Microsoft JhengHei" href="/collection/">軟體產業：</font>
-            <label for="jobSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（軟體產業）</span></label>
-            <select class="select" onchange="getCompanyVal()" id="jobSelect" name="jobSelect">
-                {% for company_item in company_filter %}
-                    <option id="{{ company_item.id }}"
-                            value={{ company_item.jobaddress }}>{{ company_item.jobname }}</option> {% endfor %}
-            </select>
-        </div>
-
-
-        <div class="select-box">
-            <font color="white" style="font-family:Microsoft JhengHei">便利商店：</font>
-            <label for="storeSelect" class="label select-box1" value=0 selected disabled hidden><span
-                    class="label-desc">請選擇（便利商店）</span></label>
-            <select class="select" onchange="getStoreVal()" id="storeSelect" name="storeSelect">
-                {% for store_item in store_filter %}
-                    <option id="{{ store_item.id }}"
-                            value={{ store_item.convenience_address }}>{{ store_item.convenience_class }}
-                        - {{ store_item.convenience_name }}</option> {% endfor %}
-            </select>
-        </div>
-
-
-        <div class="select-box">
-            <font color="white" style="font-family:Microsoft JhengHei">展覽：</font>
-            <label for="showSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（展覽）</span></label>
-            <select class="select" onchange="getShowVal()" id="showSelect" name="showSelect">
-                {% for show_item in Show_filter %}
-                    <option id="{{ show_item.id }}"
-                            value={{ show_item.location }}>{{ show_item.title }}</option> {% endfor %}
+            <font color="white" style="font-family:Microsoft JhengHei">餐廳：</font>
+            <label for="restaurantSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（餐廳）</span></label>
+            <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
+                {% for restaurant_item in Restaurant_filter %}
+                    <option id="{{ restaurant_item.id }}"
+                            value={{ restaurant_item.restaurant_address}}>{{ restaurant_item.restaurant_name}}</option> {% endfor %}
             </select>
         </div>
 
@@ -509,139 +560,9 @@
             });
         </script>
         <style>
-            .CountryCss {
-                font-family: 微軟正黑體;
-                background: #D0D0D0;
-                color: black;
-                height: 78px;
-                font-size: 25px;
-                text-align: center;
 
-            }
-
-            .AreaCss {
-                font-family: 微軟正黑體;
-                background: #D0D0D0;
-                color: black;
-                height: 78px;
-                font-size: 25px;
-                text-align: center;
-            }
-
-            .ZipCSS {
-                font-family: 微軟正黑體;
-                background: #D0D0D0;
-                color: black;
-                height: 78px;
-                font-size: 25px;
-                text-align: center;
-            }
-
-            .button2 {
-                height: 50px;
-                width: 100px;
-                background: #4272d7;
-                white-space: nowrap;
-                border-radius: .5px;
-                font-size: 20px;
-                color: #fff;
-                transition: all .2s ease-out, color .2s ease-out;
-                border: 0;
-                cursor: pointer;
-            }
-
-            .select-box {
-                cursor: pointer;
-                position: relative;
-                max-width: 50em;
-                margin: 5em auto;
-                width: 100%;
-            }
-
-            .select,
-            .label {
-                color: #414141;
-                display: block;
-                font: 400 17px/2em 'Source Sans Pro', sans-serif;
-            }
-
-            .select {
-                width: 100%;
-                position: absolute;
-                top: 0;
-                padding: 5px 0;
-                height: 40px;
-                opacity: 0;
-                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-                background: none transparent;
-                border: 0 none;
-            }
-
-            .select-box1 {
-                background: #ececec;
-            }
-
-            .label {
-                position: relative;
-                padding: 5px 10px;
-                cursor: pointer;
-            }
-
-            .open .label::after {
-                content: "▲";
-            }
-
-            .label::after {
-                content: "▼";
-                font-size: 12px;
-                position: absolute;
-                right: 0;
-                top: 0;
-                padding: 5px 15px;
-                border-left: 5px solid #fff;
-            }
 
         </style>
-
-        {#        <form action="/add2collection" id="countrySelection" method="post">#}
-        {#            {% csrf_token %}#}
-        {##}
-        {#            <select form="countrySelection" id="showSelect" name="showSelect"> {% for show_item in Show_filter %}#}
-        {#                <option value={{ show_item.title }}>{{ show_item.title }}</option> {% endfor %}#}
-        {#            </select>#}
-        {##}
-        {##}
-        {#            <select form="countrySelection" id="jobSelect" name="jobSelect"> {% for company_item in company_filter %}#}
-        {#                <option value={{ company_item.jobname }}>{{ company_item.jobname }}</option> {% endfor %}#}
-        {#            </select>#}
-        {##}
-        {##}
-        {#            <select form="countrySelection" id="storeSelect" name="storeSelect"> {% for store_item in store_filter %}#}
-        {#                <option value="{{ store_item.convenience_name }}">{{ store_item.convenience_name }}#}
-        {#                    - {{ store_item.convenience_name }}</option> {% endfor %}#}
-        {#            </select>#}
-        {##}
-        {#            <input class="button" type="submit" value="加入收藏">#}
-        {#        </form>#}
-
-
-        {#    <div>#}
-        {#        <form action='actionUrl' method='GET'>#}
-        {#            <button type='submit'>加入收藏</button>#}
-        {#        </form>#}
-        {#    </div>#}
-        <!--
-                <div class="inner-form">
-                    <div class="input-field third-wrap">
-                        <button class="btn-login-register" type="button" onclick="login_btn_click()">登入</button>
-                    </div>
-                </div>
-                <div class="inner-form">
-                    <div class="input-field third-wrap">
-                        <button class="btn-login-register" type="button" onclick="register_btn_click()">註冊會員</button>
-                    </div>
-                </div>
-        -->
     </form>
 </div>
 <div align="right" ; style="background:#3F3F3F; font-size:25px">
@@ -650,4 +571,6 @@
 <div id="map" class="inner-form"></div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </body>
+<script src="{% static 'js/home_page.js' %}"></script>
+
 </html>

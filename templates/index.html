@@ -145,8 +145,9 @@
 
     //map初始化
     function initMap() {
+
+
         address = "{{ county }}{{ district }}{{ chose_area }}";
-        {#address = "{JALAN PERUSAHAAN,   AUTOCITY,  13600,  PRAI,  PULAU PINANG}";#}
 
         console.log(address);
         map = new google.maps.Map(document.getElementById('map'), {
@@ -212,9 +213,9 @@
     }
 
 
-    var show_add;
-    var show_name;
-    var show_id;
+    var restaurant_add;
+    var restaurant_name;
+    var restaurant_id;
     var company_add;
     var company_name;
     var company_id;
@@ -231,35 +232,35 @@
     var add_company_id;
     var add_store_id
 
-    function getShowVal() {
-        var show = document.getElementById("showSelect");
-        show_add = show.options[show.selectedIndex].value;
-        show_id = show.options[show.selectedIndex].id;
-        show_name = show.options[show.selectedIndex].text;
-
-        geocoder.geocode(
-            {'address': show_add},
-            function (results, status) {
-                if (status === "OK") {
-                    //設置地圖的檢視中心點
-                    map.setCenter(results[0].geometry.location);
-                    //督進圖釘
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location,
-                        icon: '/static/images/show.png'
-                    });
-                    infoWindow.setPosition(results[0].geometry.location);
-                    infoWindow.setContent(show_name);
-                    infoWindow.open(map, marker);
-
-                } else {
-                    alert("MDFK Status Error: " + status);
-                }
-            }
-        )
-
-    }
+    {#function getShowVal() {#}
+    {#    var show = document.getElementById("showSelect");#}
+    {#    show_add = show.options[show.selectedIndex].value;#}
+    {#    show_id = show.options[show.selectedIndex].id;#}
+    {#    show_name = show.options[show.selectedIndex].text;#}
+    {##}
+    {#    geocoder.geocode(#}
+    {#        {'address': show_add},#}
+    {#        function (results, status) {#}
+    {#            if (status === "OK") {#}
+    {#                //設置地圖的檢視中心點#}
+    {#                map.setCenter(results[0].geometry.location);#}
+    {#                //督進圖釘#}
+    {#                var marker = new google.maps.Marker({#}
+    {#                    map: map,#}
+    {#                    position: results[0].geometry.location,#}
+    {#                    icon: '/static/images/show.png'#}
+    {#                });#}
+    {#                infoWindow.setPosition(results[0].geometry.location);#}
+    {#                infoWindow.setContent(show_name);#}
+    {#                infoWindow.open(map, marker);#}
+    {##}
+    {#            } else {#}
+    {#                alert("MDFK Status Error: " + status);#}
+    {#            }#}
+    {#        }#}
+    {#    )#}
+    {##}
+    {#}#}
 
     function getCompanyVal() {
         var company = document.getElementById("jobSelect");
@@ -286,6 +287,37 @@
 
                 } else {
                     alert("MDFK Status Error: " + status);
+                }
+            }
+        );
+
+    }
+
+        function getRestaurantVal() {
+        var restaurant = document.getElementById("restaurantSelect");
+        restaurant_add = restaurant.options[restaurant.selectedIndex].value;
+        restaurant_name = restaurant.options[restaurant.selectedIndex].text;
+        restaurant_id = restaurant.options[restaurant.selectedIndex].id;
+
+
+        geocoder.geocode(
+            {'address': restaurant_add},
+            function (results, status) {
+                if (status === "OK") {
+                    //設置地圖的檢視中心點
+                    map.setCenter(results[0].geometry.location);
+                    //督進圖釘
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        icon: '/static/images/jobs.png'
+                    });
+                    infoWindow.setPosition(results[0].geometry.location);
+                    infoWindow.setContent(restaurant_name);
+                    infoWindow.open(map, marker);
+
+                } else {
+                    alert("Error: " + status);
                 }
             }
         );

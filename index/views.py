@@ -14,9 +14,10 @@ def index(request):
     citys_2 = City.objects.filter(country_id=2).distinct()
     citys_3 = City.objects.filter(country_id=3).distinct()
 
+    chose_area = request.POST.get('chose_area')
     county = request.POST.get('county')
     district = request.POST.get('district')
-    chose_area = request.POST.get('chose_area')
+
 
     print(county,district,chose_area)
     if county and district:

@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/open_data/migrations/0005_company_conveniencestore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Search_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/favicon1.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/favicon2.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/areas/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/areas/migrations/0002_auto_20201119_1633.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/areas/migrations/0003_auto_20201119_1634.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_data/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_data/migrations/0002_show.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_data/migrations/0003_favoritecompany_favoriteshow_favoritestore.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_data/migrations/0004_auto_20200102_1735.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/open_data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/home_page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/Search_001.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/Search_001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +234,7 @@
       <workItem from="1607083744647" duration="2140000" />
       <workItem from="1607085985571" duration="8499000" />
       <workItem from="1607094544983" duration="1089000" />
-      <workItem from="1607150592300" duration="803000" />
+      <workItem from="1607150592300" duration="1330000" />
     </task>
     <servers />
   </component>

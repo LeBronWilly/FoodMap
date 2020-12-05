@@ -4,15 +4,6 @@
     <link REL="SHORTCUT ICON" HREF="{% static 'images/favicon.ico' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-    {#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"#}
-    {#            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"#}
-    {#            crossorigin="anonymous"></script>#}
-    {#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
-    {#            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"#}
-    {#            crossorigin="anonymous"></script>#}
-    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
-    {#            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"#}
-    {#            crossorigin="anonymous"></script>#}
     <meta name="generator"
           content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -21,9 +12,6 @@
     <meta name="author" content="colorlib.com"/>
     <link rel="stylesheet" href="../static/css/main.css"/>
 
-
-    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"#}
-    {#          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
     <style>
         #map {
             height: 600px;
@@ -232,35 +220,9 @@
     var add_company_id;
     var add_store_id
 
-    {#function getShowVal() {#}
-    {#    var show = document.getElementById("showSelect");#}
-    {#    show_add = show.options[show.selectedIndex].value;#}
-    {#    show_id = show.options[show.selectedIndex].id;#}
-    {#    show_name = show.options[show.selectedIndex].text;#}
-    {##}
-    {#    geocoder.geocode(#}
-    {#        {'address': show_add},#}
-    {#        function (results, status) {#}
-    {#            if (status === "OK") {#}
-    {#                //設置地圖的檢視中心點#}
-    {#                map.setCenter(results[0].geometry.location);#}
-    {#                //督進圖釘#}
-    {#                var marker = new google.maps.Marker({#}
-    {#                    map: map,#}
-    {#                    position: results[0].geometry.location,#}
-    {#                    icon: '/static/images/show.png'#}
-    {#                });#}
-    {#                infoWindow.setPosition(results[0].geometry.location);#}
-    {#                infoWindow.setContent(show_name);#}
-    {#                infoWindow.open(map, marker);#}
-    {##}
-    {#            } else {#}
-    {#                alert("MDFK Status Error: " + status);#}
-    {#            }#}
-    {#        }#}
-    {#    )#}
-    {##}
-    {#}#}
+    var selected_country
+
+
 
     function getCompanyVal() {
         var company = document.getElementById("jobSelect");
@@ -451,28 +413,26 @@
                             {% endfor %}
                         </select>
                     </td>
+
                 </div>
-                <div id="select_city_2" hidden="true">
+                <div id="select_city">
                     <td  class="ten wide">
-                        <select class="CountryCss" id="chose_area" name="county" >
+                        <select class="CountryCss" id="chose_area" name="city" >
                             <option value="" disabled selected>選擇地區</option>
-                            {% for city in citys_2 %}
-                                    <option>{{city.city_name}}</option>
-                            {% endfor %}
                         </select>
                     </td>
                 </div>
 
-                <div id="select_city_3" hidden="true">
-                    <td  class="ten wide" >
-                        <select class="CountryCss" id="chose_area" name="county">
-                            <option value="" disabled selected>選擇地區</option>
-                            {% for city in citys_3 %}
-                                    <option>{{city.city_name}}</option>
-                            {% endfor %}
-                        </select>
-                    </td>
-                </div>
+{#                <div id="select_city_3" hidden="true">#}
+{#                    <td  class="ten wide" >#}
+{#                        <select class="CountryCss" id="chose_area" name="county">#}
+{#                            <option value="" disabled selected>選擇地區</option>#}
+{#                            {% for city in citys_3 %}#}
+{#                                    <option>{{city.city_name}}</option>#}
+{#                            {% endfor %}#}
+{#                        </select>#}
+{#                    </td>#}
+{#                </div>#}
 
 
             <div id="twzipcode" hidden="true"></div>
@@ -590,6 +550,19 @@
                 label.find(".label-desc").html(selection);
 
             });
+
+            $("#chose_country").change(function () {
+                selected_country = $("#chose_country").val()
+                console.log(selected_country)
+                $('#chose_area').empty();
+                $('#chose_area').append("<option value=\"\" disabled selected>選擇地區</option>")
+                {% for city in city_all %}
+                    if ({{ city.country_id }} == selected_country){
+                        $('#chose_area').append("<option value={{ city.id }}>{{city.city_name}}</option>")
+                    }
+                {% endfor %}
+            });
+
         </script>
         <style>
 
@@ -603,6 +576,5 @@
 <div id="map" class="inner-form"></div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </body>
-<script src="{% static 'js/home_page.js' %}"></script>
 
 </html>

@@ -11,19 +11,28 @@ from areas.models import City
 def index(request):
     countrys = Country.objects.all().distinct()
 
-    citys_2 = City.objects.filter(country_id=2).distinct()
-    citys_3 = City.objects.filter(country_id=3).distinct()
+    city_all = City.objects.all().distinct()
+    # citys_2 = City.objects.filter(country_id=2).distinct()
+    # citys_3 = City.objects.filter(country_id=3).distinct()
 
-    chose_area = request.POST.get('chose_area')
-    county = request.POST.get('county')
+    chose_country = request.POST.get('chose_country')
+    chose_city = request.POST.get('city')
+    select_restaurant = Restaurant.objects.filter(country_id=chose_country, city_id=chose_city).distinct()
+
+
+    print(chose_country,chose_city)
+
+    # chose_area = request.POST.get('chose_area')
+
     district = request.POST.get('district')
+    country = request.POST.get('chose_country')
 
-
-    print(county,district,chose_area)
-    if county and district:
-        Restaurants_all = Restaurant.objects.all()
-        Restaurant_filter = Restaurants_all.filter(Q(restaurant_address__icontains=county) &
-                                Q(restaurant_address__icontains=district)).distinct()
+    county = request.POST.get('county')
+    # print(county,district,chose_area)
+    # if county and district:
+    #     Restaurants_all = Restaurant.objects.all()
+    #     Restaurant_filter = Restaurants_all.filter(Q(restaurant_address__icontains=county) &
+    #                             Q(restaurant_address__icontains=district)).distinct()
 
     if request.user.is_authenticated:
         user_id = request.user.id

@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/areas/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/areas/migrations/0002_auto_20201119_1633.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/areas/migrations/0003_auto_20201119_1634.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0002_show.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0003_favoritecompany_favoriteshow_favoritestore.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0004_auto_20200102_1735.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/home_page.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -125,6 +134,26 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@973c03ba" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@973c03ba" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@d5ab3e7" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -201,7 +230,13 @@
       <workItem from="1605866797843" duration="658000" />
       <workItem from="1606810569825" duration="5384000" />
       <workItem from="1606985990040" duration="2344000" />
-      <workItem from="1607010160117" duration="898000" />
+      <workItem from="1607010160117" duration="2632000" />
+      <workItem from="1607047705223" duration="5361000" />
+      <workItem from="1607078158818" duration="141000" />
+      <workItem from="1607083744647" duration="2140000" />
+      <workItem from="1607085985571" duration="8499000" />
+      <workItem from="1607094544983" duration="1089000" />
+      <workItem from="1607150592300" duration="803000" />
     </task>
     <servers />
   </component>

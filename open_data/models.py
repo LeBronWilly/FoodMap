@@ -7,6 +7,8 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from django.contrib.auth.models import User
+from areas.models import Country
+from areas.models import City
 from TeamWork2 import settings
 from django.utils import timezone
 
@@ -43,6 +45,8 @@ class show(models.Model):
 class Restaurant(models.Model):
     restaurant_name = models.TextField()
     restaurant_address = models.TextField()
+    country = models.ForeignKey(Country, on_delete='models.CASCADE', default=1)
+    city= models.ForeignKey(City, on_delete='models.CASCADE', default=1)
 
     class Meta:
         managed = True

@@ -12,6 +12,9 @@ def index(request):
     countrys = Country.objects.all().distinct()
 
     city_all = City.objects.all().distinct()
+
+    restaurants = restaurant.objects.all().distinct()
+
     # citys_2 = City.objects.filter(country_id=2).distinct()
     # citys_3 = City.objects.filter(country_id=3).distinct()
 

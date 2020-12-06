@@ -523,7 +523,7 @@
             <font color="white" style="font-family:Microsoft JhengHei">餐廳：</font>
             <label for="restaurantSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（餐廳）</span></label>
             <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
-                {% for restaurant_item in Restaurant_filter %}
+                {% for restaurant_item in select_restaurant %}
                     <option id="{{ restaurant_item.id }}"
                             value={{ restaurant_item.restaurant_address}}>{{ restaurant_item.restaurant_name}}</option> {% endfor %}
             </select>

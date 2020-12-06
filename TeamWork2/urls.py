@@ -19,7 +19,7 @@ from index.views import index
 from collection.views import collection
 from open_data import views
 
-# jojo的女兒們
+
 from django.urls import include
 from django.views.generic.base import TemplateView
 

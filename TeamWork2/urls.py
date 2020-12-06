@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from index.views import index
 from collection.views import collection
+from open_data import views
 
 # jojo的女兒們
 from django.urls import include
 from django.views.generic.base import TemplateView
+
+app_name = 'open_data'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +36,7 @@ urlpatterns = [
     # path('index/login/', TemplateView.as_view(template_name='home.html')),
     path('', include('users.urls')),
     path('', include('django.contrib.auth.urls')),
+    path('open_data/', include('open_data.urls')),
 
 
 ]

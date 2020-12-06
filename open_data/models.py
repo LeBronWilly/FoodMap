@@ -42,15 +42,18 @@ class show(models.Model):
         managed = True
         db_table = "show"
 
-class Restaurant(models.Model):
+class restaurant(models.Model):
     restaurant_name = models.TextField()
     restaurant_address = models.TextField()
     country = models.ForeignKey(Country, on_delete='models.CASCADE', default=1)
-    city= models.ForeignKey(City, on_delete='models.CASCADE', default=1)
+    city = models.ForeignKey(City, on_delete='models.CASCADE', default=1)
 
+    def __str__(self):
+        return self.restaurant_name
     class Meta:
         managed = True
         db_table = "restaurant"
+
 
 # import json
 #

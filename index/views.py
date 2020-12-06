@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from open_data.models import Company, ConvenienceStore, show, Restaurant
+from open_data.models import Company, ConvenienceStore, show, restaurant
 from collection.models import favoriteshow, favoritecompany, favoritestore
 from django.db.models import Q
 from areas.models import Country
@@ -21,7 +21,7 @@ def index(request):
         select_country = Country.objects.filter(id=chose_country).values('country_name')
         select_city = City.objects.filter(id=chose_city).values('city_name')
         print(chose_country, chose_city)
-        select_restaurant = Restaurant.objects.filter(country_id=chose_country, city_id=chose_city).distinct()
+        select_restaurant = restaurant.objects.filter(country_id=chose_country, city_id=chose_city).distinct()
 
 
 

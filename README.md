@@ -34,5 +34,6 @@ python manage.py migrate
 1. 把出錯的migrations資料夾裡面的東西刪掉(0001_initial.py & __init__.py)
 2. 然後一樣執行上面的Command
 
+##匯入餐廳OpenData：http://localhost:8000/open_data/import_restaurant
 
 

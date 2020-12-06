@@ -560,6 +560,7 @@
                 selected_country = $("#chose_country").val()
                 console.log(selected_country)
                 $('#chose_area').empty();
+                $('#restaurantSelect').empty();
                 $('#chose_area').append("<option value=\"\" disabled selected>選擇地區</option>")
                 {% for city in city_all %}
                     if ({{ city.country_id }} == selected_country){
@@ -567,6 +568,8 @@
                     }
                 {% endfor %}
             });
+
+
 
         </script>
         <style>

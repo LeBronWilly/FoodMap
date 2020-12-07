@@ -20,18 +20,22 @@ def import_restaurant(request):
     base_path = Path(__file__).parent
     file_path = (base_path / "菲律賓_馬尼拉.csv").resolve()
     # file_path = "菲律賓_馬尼拉.csv"
-    with open(file_path, encoding="utf-8", newline="") as csvfile:
-        rows = list(csv.reader(csvfile))
-        for row in islice(rows, 1, None):
-            is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
-            if not is_restaurant:
-                row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
-                row.save()
-            # is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
-                # if not is_restaurant:
-                #     row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
-                #     row.save()
-        messages.add_message(request, messages.SUCCESS, '成功更新')
+    try:
+        with open(file_path, encoding="utf-8", newline="") as csvfile:
+            rows = list(csv.reader(csvfile))
+            for row in islice(rows, 1, None):
+                is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
+                if not is_restaurant:
+                    row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
+                    row.save()
+                # is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
+                    # if not is_restaurant:
+                    #     row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
+                    #     row.save()
+            # messages.add_message(request, messages.SUCCESS, '成功更新')
+        messages.error(request, '更新成功') 
+    except Exception as e:
+        messages.error(request, '更新失敗') 
     # try:
     #     with open(file_path, encoding="utf-8-sig", newline="") as csvfile:
     #         rows = list(csv.reader(csvfile))
@@ -47,7 +51,8 @@ def import_restaurant(request):
     #         messages.add_message(request, messages.SUCCESS, '成功更新')
     # except Exception as e:
     #     messages.add_message(request, messages.ERROR, e)
-    return HttpResponseRedirect("")
+    
+    return HttpResponseRedirect("http://127.0.0.1:8000")
     # return HttpResponseRedirect(reverse('open_data:import_restaurant'))
 
 # http://127.0.0.1:8000/open_data/import_restaurant

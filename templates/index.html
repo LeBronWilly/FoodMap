@@ -246,7 +246,7 @@
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location,
-                        icon: '/static/images/jobs.png'
+                        icon: '/static/images/restaurant.png'
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(company_name);
@@ -277,7 +277,7 @@
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location,
-                        icon: '/static/images/jobs.png'
+                        icon: '/static/images/restaurant.png'
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(restaurant_name);
@@ -307,7 +307,7 @@
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location,
-                        icon: '/static/images/convenience_store.png'
+                        icon: '/static/images/restaurant.png'
                     });
                     infoWindow.setPosition(results[0].geometry.location);
                     infoWindow.setContent(store_name);
@@ -382,6 +382,15 @@
 </script>
 
 <body>
+
+{% if messages %}
+<script>
+    {% for msg in messages %}
+        alert('{{ msg.message }}');
+    {% endfor %}
+</script>
+{% endif %}
+
 <div align="right" ; style="background:#3F3F3F; font-size:25px">
     <!------------------------------------------------------------------------>
     {% if user.is_authenticated %}

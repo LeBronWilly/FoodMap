@@ -12,7 +12,7 @@ from itertools import islice
 import csv
 # import collections
 # import geocoder
-from geojson import Point, Feature, FeatureCollection
+# from geojson import Point, Feature, FeatureCollection
 from pathlib import Path
 
 # Create your views here.

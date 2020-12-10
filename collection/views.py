@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.utils import timezone
-from open_data.models import show, ConvenienceStore, Company
-from collection.models import favoriteshow, favoritecompany, favoritestore
+# from open_data.models import show, ConvenienceStore, Company
+# from collection.models import favoriteshow, favoritecompany, favoritestore
+from open_data.models import restaurant
+from collection.models import favorite_restaurant
 # Create your views here.
 
 from django.views.generic import TemplateView
@@ -25,31 +27,29 @@ def collection(request):
     if request.user.is_authenticated:
         user_id = request.user.id
 
+        restaurant_filter = restaurant.objects.filter(restaurant_related__favorite_user_id=user_id)
 
-        show_filter = show.objects.filter(show_related__favorite_user_id=user_id)
-        # print(show_filter)
-        company_filter = Company.objects.filter(company_related__favorite_user_id=user_id)
-        # print(company_filter)
-        store_filter = ConvenienceStore.objects.filter(store_related__favorite_user_id=user_id)
-        # print(store_filter)
 
         get_delete_number = request.POST.get('number')
+        # print(get_delete_number)
+
         if get_delete_number:
-            if "show" in get_delete_number:
-                i = get_delete_number[4:]
-                i_int = int(i)
-                show_delete = favoriteshow.objects.filter(favorite_user_id=user_id, favorite_id=i)
-                show_delete.delete()
-            elif "company" in get_delete_number:
-                i = get_delete_number[7:]
-                i_int = int(i)
-                company_delete = favoritecompany.objects.filter(favorite_user_id=user_id, favorite_id=i)
-                company_delete.delete()
-            elif "store" in get_delete_number:
-                i = get_delete_number[5:]
-                i_int = int(i)
-                store_delete = favoritestore.objects.filter(favorite_user_id=user_id, favorite_id=i)
-                store_delete.delete()
+            # if "restaurant" in get_delete_number:
+            i = get_delete_number
+            print(i)
+            i_int = int(i)
+            restaurant_delete = favorite_restaurant.objects.filter(favorite_user_id=user_id, favorite_id=i)
+            restaurant_delete.delete()
+        #     elif "company" in get_delete_number:
+        #         i = get_delete_number[7:]
+        #         i_int = int(i)
+        #         company_delete = favoritecompany.objects.filter(favorite_user_id=user_id, favorite_id=i)
+        #         company_delete.delete()
+        #     elif "store" in get_delete_number:
+        #         i = get_delete_number[5:]
+        #         i_int = int(i)
+        #         store_delete = favoritestore.objects.filter(favorite_user_id=user_id, favorite_id=i)
+        #         store_delete.delete()
 
         # show_delete = favoriteshow(favorite_id=get_delete_number)
         # show_delete.delete()

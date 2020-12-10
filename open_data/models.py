@@ -14,33 +14,33 @@ from django.utils import timezone
 
 
 
-class Company(models.Model):
-    jobname = models.TextField(db_column='jobName', blank=True, null=True)  # Field name made lowercase.
-    jobaddress = models.TextField(db_column='jobAddress', blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = True
-        db_table = 'company'
-
-
-class ConvenienceStore(models.Model):
-    convenience_class = models.TextField(blank=True, null=True)
-    convenience_name = models.TextField(blank=True, null=True)
-    convenience_address = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'convenienceStore'
-
-
-class show(models.Model):
-    title = models.TextField()
-    location = models.TextField()
-    locationName = models.TextField()
-
-    class Meta:
-        managed = True
-        db_table = "show"
+# class Company(models.Model):
+#     jobname = models.TextField(db_column='jobName', blank=True, null=True)  # Field name made lowercase.
+#     jobaddress = models.TextField(db_column='jobAddress', blank=True, null=True)  # Field name made lowercase.
+#
+#     class Meta:
+#         managed = True
+#         db_table = 'company'
+#
+#
+# class ConvenienceStore(models.Model):
+#     convenience_class = models.TextField(blank=True, null=True)
+#     convenience_name = models.TextField(blank=True, null=True)
+#     convenience_address = models.TextField(blank=True, null=True)
+#
+#     class Meta:
+#         managed = True
+#         db_table = 'convenienceStore'
+#
+#
+# class show(models.Model):
+#     title = models.TextField()
+#     location = models.TextField()
+#     locationName = models.TextField()
+#
+#     class Meta:
+#         managed = True
+#         db_table = "show"
 
 class restaurant(models.Model):
     restaurant_name = models.TextField()

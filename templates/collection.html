@@ -211,38 +211,12 @@
             </tr>
             </thead>
             <tbody>
-            {% for show_item  in show_filter %}
+            {% for restaurant_item  in restaurant_filter %}
                 <tr>
 
-                    <td style="display: none">show{{ show_item.id }}</td>
-                    <td>{{ show_item.title }}</td>
-                    <td>{{ show_item.location }}</td>
-
-                    <td>
-                        <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i
-                                class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-            {% endfor %}
-            {% for company_item  in company_filter %}
-                <tr>
-
-                    <td style="display: none">company{{ company_item.id }}</td>
-                    <td>{{ company_item.jobname }}</td>
-                    <td>{{ company_item.jobaddress }}</td>
-
-                    <td>
-                        <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i
-                                class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-            {% endfor %}
-            {% for store_item  in store_filter %}
-                <tr>
-
-                    <td style="display: none">store{{ store_item.id }}</td>
-                    <td>{{ store_item.convenience_class }} - {{ store_item.convenience_name }}</td>
-                    <td>{{ store_item.convenience_address }}</td>
+                    <td style="display: none">{{ restaurant_item.id }}</td>
+                    <td>{{ restaurant_item.restaurant_name }}</td>
+                    <td>{{ restaurant_item.restaurant_address }}</td>
 
                     <td>
                         <a href="/collection" class="delete" title="刪除" data-toggle="tooltip"><i

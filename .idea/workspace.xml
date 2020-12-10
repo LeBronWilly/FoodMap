@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="fef63634-a3a0-4435-9e7f-caafc77f05e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/areas/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/areas/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collection/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0002_auto_20201205_1445.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/migrations/0005_company_conveniencestore.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/open_data/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/open_data/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collection.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,6 +51,18 @@
         <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="collection_favorite_restaurant: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -218,6 +242,11 @@
       <workItem from="1607085985571" duration="8499000" />
       <workItem from="1607094544983" duration="1089000" />
       <workItem from="1607150592300" duration="7672000" />
+      <workItem from="1607392657140" duration="214000" />
+      <workItem from="1607531879682" duration="3361000" />
+      <workItem from="1607562152874" duration="9736000" />
+      <workItem from="1607601578167" duration="3173000" />
+      <workItem from="1607604782981" duration="4833000" />
     </task>
     <servers />
   </component>

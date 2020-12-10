@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from open_data.models import Company, ConvenienceStore, show, restaurant
-from collection.models import favoriteshow, favoritecompany, favoritestore
+# from open_data.models import Company, ConvenienceStore, show
+from open_data.models import restaurant
+# from collection.models import favoriteshow, favoritecompany, favoritestore
+from collection.models import favorite_restaurant
 from django.db.models import Q
 from areas.models import Country
 from areas.models import City
@@ -15,9 +17,6 @@ def index(request):
 
     restaurants = restaurant.objects.all().distinct()
 
-    # citys_2 = City.objects.filter(country_id=2).distinct()
-    # citys_3 = City.objects.filter(country_id=3).distinct()
-
     chose_country = request.POST.get('chose_country')
     chose_city = request.POST.get('city')
     if chose_country and chose_city:
@@ -25,9 +24,6 @@ def index(request):
         select_city = City.objects.filter(id=chose_city).values('city_name')
         print(chose_country, chose_city)
         select_restaurant = restaurant.objects.filter(country_id=chose_country, city_id=chose_city).distinct()
-
-
-
 
     # chose_area = request.POST.get('chose_area')
 
@@ -62,13 +58,13 @@ def index(request):
         #
         #                                 Q(convenience_address__icontains=district)).distinct()
         #
-        # get_show_id_c = request.POST.get('show_id_c')
-        # get_show_name_c = request.POST.get('show_name_c')
-        # if get_show_id_c and get_show_name_c:
-        #     print("加入收藏id= " + str(get_show_id_c))
-        #     print("加入收藏name= " + str(get_show_name_c))
-        #     favorite_show = favoriteshow(favorite_user_id=user_id, favorite_id=get_show_id_c)
-        #     favorite_show.save()
+        get_restaurant_id_c = request.POST.get('restaurant_id_c')
+        get_restaurant_name_c = request.POST.get('restaurant_name_c')
+        if get_restaurant_id_c and get_restaurant_name_c:
+            print("加入收藏id= " + str(get_restaurant_id_c))
+            print("加入收藏name= " + str(get_restaurant_name_c))
+            favoriterestaurant = favorite_restaurant(favorite_user_id=user_id, favorite_id=get_restaurant_id_c)
+            favoriterestaurant.save()
         #
         # get_company_id_c = request.POST.get('company_id_c')
         # get_company_name_c = request.POST.get('company_name_c')

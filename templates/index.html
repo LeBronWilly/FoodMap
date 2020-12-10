@@ -179,7 +179,7 @@
                         //督進圖釘
 
                     } else {
-                        alert("請先選擇區域");
+                        //alert("請先選擇區域");
                     }
                 }
             )
@@ -209,26 +209,30 @@
     var restaurant_add;
     var restaurant_name;
     var restaurant_id;
-    var company_add;
-    var company_name;
-    var company_id;
-    var store_add;
-    var store_name;
-    var store_id;
-    var show;
-    var show_value;
-    var company;
-    var company_value;
-    var store;
-    var store_value;
-    var add_show_id;
-    var add_company_id;
-    var add_store_id
+    {#var company_add;#}
+    {#var company_name;#}
+    {#var company_id;#}
+    {#var store_add;#}
+    {#var store_name;#}
+    {#var store_id;#}
+    {#var show;#}
+    {#var show_value;#}
+    {#var company;#}
+    {#var company_value;#}
+    {#var store;#}
+    {#var store_value;#}
+    {#var add_show_id;#}
+    {#var add_company_id;#}
+    {#var add_store_id#}
+
+    var restaurant;
+    var restaurant_value
+    var add_restaurant_id;
 
     var selected_country
 
 
-
+    /*
     function getCompanyVal() {
         var company = document.getElementById("jobSelect");
         company_add = company.options[company.selectedIndex].value;
@@ -259,7 +263,7 @@
         );
 
     }
-
+*/
         function getRestaurantVal() {
         var restaurant = document.getElementById("restaurantSelect");
         restaurant_add = restaurant.options[restaurant.selectedIndex].value;
@@ -290,7 +294,7 @@
         );
 
     }
-
+    /*
     function getStoreVal() {
         var store = document.getElementById("storeSelect");
         store_add = store.options[store.selectedIndex].value;
@@ -314,13 +318,13 @@
                     infoWindow.open(map, marker);
 
                 } else {
-                    alert("MDFK Status Error: " + status);
+                    alert("Status Error: " + status);
                 }
             }
         );
 
     }
-
+        */
 
     function add2collection() {
         if ({{ user_id }} == 0
@@ -330,27 +334,33 @@
         }
     else
         {
-            if ('{{ county }}' === "None" && '{{ district }}' === "None") {
-                alert('請先選擇縣市區域');
+            if ('{{ country }}' === "None" && '{{ city }}' === "None") {
+                alert('請先選擇國家地區');
             }
 
-
+            restaurant = document.getElementById("restaurantSelect");
+            add_restaurant_id = restaurant.options[restaurant.selectedIndex].id;
+            restaurant_value = $('label[for="restaurantSelect"]').text();
+            /*
             show = document.getElementById("showSelect");
-            {#show_value = show.options[show.selectedIndex].value;#}
+
             add_show_id = show.options[show.selectedIndex].id;
             company = document.getElementById("jobSelect");
-            {#company_value = company.options[company.selectedIndex].value;#}
+
             add_company_id = company.options[company.selectedIndex].id;
             store = document.getElementById("storeSelect");
-            {#store_value = store.options[store.selectedIndex].value;#}
+
             add_store_id = store.options[store.selectedIndex].id;
             show_value = $('label[for="showSelect"]').text();
             company_value = $('label[for="jobSelect"]').text();
             store_value = $('label[for="storeSelect"]').text();
+            */
+            {#company_value = company.options[company.selectedIndex].value;#}
+            {#store_value = store.options[store.selectedIndex].value;#}
+            {#show_value = show.options[show.selectedIndex].value;#}
 
-
-            if (show_value == "請選擇（展覽）" && company_value == "請選擇（軟體產業）" && store_value == "請選擇（便利商店）") {
-                alert("請先選擇至少一項")
+            if (restaurant_value == "請選擇（）") {
+                alert("請先選擇餐廳")
             } else {
                 alert("已加入")
                 $.ajax({
@@ -358,12 +368,14 @@
                     url: "",
                     data: {
                         //'type_c': type,
-                        'show_id_c': add_show_id,
-                        'show_name_c': show_name,
-                        'company_id_c': add_company_id,
-                        'company_name_c': company_name,
-                        'store_id_c': add_store_id,
-                        'store_name_c': store_name,
+                        'restaurant_id_c': add_restaurant_id,
+                        'restaurant_name_c': restaurant_name,
+                        {#'show_id_c': add_show_id,#}
+                        {#'show_name_c': show_name,#}
+                        {#'company_id_c': add_company_id,#}
+                        {#'company_name_c': company_name,#}
+                        {#'store_id_c': add_store_id,#}
+                        {#'store_name_c': store_name,#}
                         // all of this data is submitted via POST to your view.
                         // in django, request.POST['background-color']
                     },
@@ -395,8 +407,8 @@
     <!------------------------------------------------------------------------>
     {% if user.is_authenticated %}
 
-        <font color="white" style="font-family:Microsoft JhengHei">Hi {{ user.username }}!</font>
-        <p></p>
+        <font color="white" style="font-family:Microsoft JhengHei" >Hi {{ user.username }}!</font>
+        <br>
         <a href="{% url 'logout' %}"
            style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
     {% else %}
@@ -449,13 +461,13 @@
 {#                </div>#}
 
 
-            <div id="twzipcode" hidden="true"></div>
-            <script>
-                $("#twzipcode").twzipcode({
-                    'countySel': '{{ county }}',
-                    'districtSel': '{{ district }}',
-                    css: ['CountryCss', 'AreaCss', 'ZipCSS'],
-                });
+{#            <div id="twzipcode" hidden="true"></div>#}
+{#            <script>#}
+{#                $("#twzipcode").twzipcode({#}
+{#                    'countySel': '{{ county }}',#}
+{#                    'districtSel': '{{ district }}',#}
+{#                    css: ['CountryCss', 'AreaCss', 'ZipCSS'],#}
+{#                });#}
                 {#var array = $("#twzipcode").twzipcode('get', 'county,district');#}
                 {#2020.11.20先拿掉 會導致post2次 #}
                 {#$.ajax({#}
@@ -476,7 +488,7 @@
                 {#});#}
 
 
-            </script>
+{#            </script>#}
 
 
             <div class="input-field third-wrap">

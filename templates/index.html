@@ -131,7 +131,7 @@
     src = "jquery-3.2.1.min.js";
     //MAP CODE//////////////////////////////////////////////////////////////////////
     var map, geocoder, address, infoWindow;
-
+    
     //map初始化
     function initMap() {
 
@@ -332,15 +332,13 @@
         {
             alert("請先登入");
         }
-    else
+        else
         {
-            if ('{{ country }}' === "None" && '{{ city }}' === "None") {
-                alert('請先選擇國家地區');
-            }
-
             restaurant = document.getElementById("restaurantSelect");
-            add_restaurant_id = restaurant.options[restaurant.selectedIndex].id;
             restaurant_value = $('label[for="restaurantSelect"]').text();
+            
+            
+            
             /*
             show = document.getElementById("showSelect");
 
@@ -355,13 +353,16 @@
             company_value = $('label[for="jobSelect"]').text();
             store_value = $('label[for="storeSelect"]').text();
             */
+            /*
             {#company_value = company.options[company.selectedIndex].value;#}
             {#store_value = store.options[store.selectedIndex].value;#}
             {#show_value = show.options[show.selectedIndex].value;#}
+            */
 
-            if (restaurant_value == "請選擇（）") {
-                alert("請先選擇餐廳")
+            if (restaurant_value == "請選擇（餐廳）") {
+                alert("請選擇餐廳")
             } else {
+                add_restaurant_id = restaurant.options[restaurant.selectedIndex].id;
                 alert("已加入")
                 $.ajax({
                     type: "POST",
@@ -370,12 +371,12 @@
                         //'type_c': type,
                         'restaurant_id_c': add_restaurant_id,
                         'restaurant_name_c': restaurant_name,
-                        {#'show_id_c': add_show_id,#}
-                        {#'show_name_c': show_name,#}
-                        {#'company_id_c': add_company_id,#}
-                        {#'company_name_c': company_name,#}
-                        {#'store_id_c': add_store_id,#}
-                        {#'store_name_c': store_name,#}
+                        //{#'show_id_c': add_show_id,#}
+                        //{#'show_name_c': show_name,#}
+                        //{#'company_id_c': add_company_id,#}
+                        //{#'company_name_c': company_name,#}
+                        //{#'store_id_c': add_store_id,#}
+                        //{#'store_name_c': store_name,#}
                         // all of this data is submitted via POST to your view.
                         // in django, request.POST['background-color']
                     },
@@ -555,7 +556,7 @@
             $("select").on("click", function () {
 
                 $(this).parent(".select-box").toggleClass("open");
-
+                
             });
 
             $(document).mouseup(function (e) {
@@ -566,6 +567,7 @@
                 }
             });
 
+            
 
             $("select").on("change", function () {
 
@@ -588,6 +590,22 @@
                         $('#chose_area').append("<option value={{city.id}}>{{city.city_name}}</option>")
                     }
                 {% endfor %}
+            });
+
+            $("#search_btn").on("click", function () {
+
+                selected_country = $("#chose_country").val()
+                selected_city = $("#chose_area").val()
+                // if (selected_country != 1 && selected_country != 2 && selected_country != 3){
+                if (selected_country == null){
+                    alert('請選擇國家及地區');
+                }else{
+                    if (selected_city == null){
+                        alert('你沒選擇地區');
+                    }
+                }
+                
+                
             });
 
 

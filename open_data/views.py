@@ -18,7 +18,7 @@ from pathlib import Path
 # Create your views here.
 def import_restaurant(request):
     base_path = Path(__file__).parent
-    file_path = (base_path / "菲律賓_馬尼拉.csv").resolve()
+    file_path = (base_path / "Restaurants.csv").resolve()
     # file_path = "菲律賓_馬尼拉.csv"
     try:
         with open(file_path, encoding="utf-8", newline="") as csvfile:

@@ -469,7 +469,7 @@ legend {
   background-size: cover;
   background-position: center center;
   padding: 15px;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .s01 form {

@@ -5,6 +5,7 @@
     <link REL="SHORTCUT ICON" HREF="{% static 'images/favicon.ico' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="generator"
           content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -404,20 +405,26 @@
 </script>
 {% endif %}
 
-<div align="right" ; style="background:#3F3F3F; font-size:25px">
+<div align="right" ; style="background:#a17e6b; height:80px">
     <!------------------------------------------------------------------------>
     {% if user.is_authenticated %}
-
-        <font color="white" style="font-family:Microsoft JhengHei" >Hi {{ user.username }}!</font>
+        <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
         <br>
         <a href="{% url 'logout' %}"
            style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
     {% else %}
-
-        <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI"
-           href="{% url 'login' %}">登入</a>
-        <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI"
-           href="{% url 'signup' %}">註冊</a>
+        <button type="button" class="btn btn-outline-primary" style="margin-top: 15px; margin-right: 5px; border-color:white;">
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
+                登入
+            </a>
+        </button>
+        &nbsp;
+        &nbsp;
+        <button type="button" class="btn btn-outline-primary" style="margin-right: 60px; margin-top: 15px; border-color:white;">
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
+                註冊
+            </a>
+        </button>
     {% endif %}
     <!------------------------------------------------------------------------>
 </div>
@@ -430,10 +437,10 @@
         </fieldset>
 
 
-        <div class="inner-form">
+        <div class="inner-form" style="margin-top: 150px;">
                 <div>
                     <td class="ten wide">
-                        <select class="CountryCss"id="chose_country" name="chose_country" class="CountryCss">
+                        <select class="CountryCss"id="chose_country" name="chose_country" class="CountryCss" style="background-color: #a17e6b; border-radius: 10px; color: white;">
                             <option value="" disabled selected>選擇國家</option>
                             {% for country in countrys %}
                                 <option value={{ country.id}}>{{country.country_name}}</option>
@@ -444,7 +451,8 @@
                 </div>
                 <div id="select_city">
                     <td  class="ten wide">
-                        <select class="CountryCss" id="chose_area" name="city" >
+
+                        <select class="CountryCss" id="chose_area" name="city" style="background-color: #a17e6b; border-radius: 10px; color: white;">
                             <option value="" disabled selected>選擇地區</option>
                         </select>
                     </td>
@@ -541,7 +549,7 @@
 {#            </select>#}
 {#        </div>#}
 
-        <div class="select-box">
+        <div class="select-box" style="background-color: #a17e6b">
             <font color="white" style="font-family:Microsoft JhengHei">餐廳：</font>
             <label for="restaurantSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（餐廳）</span></label>
             <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
@@ -620,7 +628,7 @@
         </style>
     </form>
 </div>
-<div align="right" ; style="background:#3F3F3F; font-size:25px">
+<div align="right" ; style="background:#a17e6b; font-size:25px">
     <button class="button2" onclick="add2collection()" style="font-family:Microsoft JhengHei">加入收藏</button>
 </div>
 <div id="map" class="inner-form"></div>

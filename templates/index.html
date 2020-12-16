@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="../static/css/main.css"/>
 
     <style>
+        #foodmap{
+            font-size: 30px;
+        }
+
         #map {
             height: 600px;
             weight: 100%;
@@ -121,6 +125,8 @@
             padding: 5px 15px;
             border-left: 5px solid #fff;
         }
+
+        
     </style>
 </head>
 
@@ -405,7 +411,12 @@
 </script>
 {% endif %}
 
-<div align="right" ; style="background:#a17e6b; height:80px">
+<div align="right" ; style="background:#a17e6b; height:100px">
+    <div align="left">
+        <fieldset >
+            <legend id="foodmap">FoodMap</legend>
+        </fieldset>
+    </div>
     <!------------------------------------------------------------------------>
     {% if user.is_authenticated %}
         <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
@@ -413,14 +424,14 @@
         <a href="{% url 'logout' %}"
            style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
     {% else %}
-        <button type="button" class="btn btn-outline-primary" style="margin-top: 15px; margin-right: 5px; border-color:white;">
+        <button type="button" class="btn btn-outline-primary" style="margin-top: 0px; margin-right: 5px; border-color:white;">
             <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
                 登入
             </a>
         </button>
         &nbsp;
         &nbsp;
-        <button type="button" class="btn btn-outline-primary" style="margin-right: 60px; margin-top: 15px; border-color:white;">
+        <button type="button" class="btn btn-outline-primary" style="margin-right: 60px; margin-top: 0px; border-color:white;">
             <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
                 註冊
             </a>
@@ -432,9 +443,9 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        <fieldset>
+        {% comment %} <fieldset>
             <legend>FoodMap</legend>
-        </fieldset>
+        </fieldset> {% endcomment %}
 
 
         <div class="inner-form" style="margin-top: 150px;">

@@ -7,7 +7,7 @@ from areas.models import City
 
 
 
-# Register your models here.
+# Register your models here
 
 class restaurantAdmin(admin.ModelAdmin):
     list_display = ('restaurant_name', 'restaurant_address', 'country',"city")

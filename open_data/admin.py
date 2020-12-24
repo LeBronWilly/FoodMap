@@ -1,11 +1,22 @@
 from django.contrib import admin
-# from open_data.models import Company
+from open_data.models import restaurant
+from areas.models import Country
+from areas.models import City
 # from open_data.models import ConvenienceStore
 # from open_data.models import show
 
 
 
 # Register your models here.
+
+class restaurantAdmin(admin.ModelAdmin):
+    list_display = ('restaurant_name', 'restaurant_address', 'country',"city")
+
+# class CountryAdmin(admin.ModelAdmin):
+#     list_display = ('country_name', 'last_modify_date', 'created')
+
+# class CityAdmin(admin.ModelAdmin):
+#     list_display = ('city_name', 'country_id', 'last_modify_date',"created")
 
 
 # class CompanyAdmin(admin.ModelAdmin):
@@ -21,6 +32,9 @@ from django.contrib import admin
 
 
 
+admin.site.register(restaurant, restaurantAdmin)
+# admin.site.register(Country, CountryAdmin)
+# admin.site.register(City, CityAdmin)
 
 # admin.site.register(Company, CompanyAdmin)
 # admin.site.register(ConvenienceStore, ConvenienceStoreAdmin)

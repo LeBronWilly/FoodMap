@@ -5,6 +5,7 @@ from collection.models import favorite_restaurant
 
 class favorite_restaurantAdmin(admin.ModelAdmin):
     list_display = ('favorite', 'favorite_user', 'time')
+    list_filter = ['favorite_user']
 
 # class favoritecompanyAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'favorite', 'favorite_user', 'time',)

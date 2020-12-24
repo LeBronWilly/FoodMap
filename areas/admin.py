@@ -7,6 +7,7 @@ class CountryAdmin(admin.ModelAdmin):
 
 class CityAdmin(admin.ModelAdmin):
     list_display = ('id','city_name', 'country_id', 'last_modify_date',"created")
+    list_filter = ['country_id']
 
 # Register your models here.
 

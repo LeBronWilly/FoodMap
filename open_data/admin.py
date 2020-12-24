@@ -1,7 +1,5 @@
 from django.contrib import admin
 from open_data.models import restaurant
-from areas.models import Country
-from areas.models import City
 # from open_data.models import ConvenienceStore
 # from open_data.models import show
 
@@ -11,6 +9,8 @@ from areas.models import City
 
 class restaurantAdmin(admin.ModelAdmin):
     list_display = ('restaurant_name', 'restaurant_address', 'country',"city")
+    list_filter = ['country']
+    fields = ['restaurant_name', 'restaurant_address']
 
 # class CountryAdmin(admin.ModelAdmin):
 #     list_display = ('country_name', 'last_modify_date', 'created')

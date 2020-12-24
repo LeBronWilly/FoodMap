@@ -9,7 +9,10 @@ urlpatterns = [
     # path('', views.hotel, name='hotel'),
 
     # import hotel data
-    path('import_restaurant/', views.import_restaurant, name='import_restaurant'),
+    # path('import_restaurant/', views.import_restaurant, name='import_restaurant'),
+    path('import_PHrestaurant/', views.import_PHrestaurant, name='import_PHrestaurant'),
+    path('import_MYrestaurant/', views.import_MYrestaurant, name='import_MYrestaurant'),
+    path('import_TWrestaurant/', views.import_TWrestaurant, name='import_TWrestaurant'),
 
     # # Hotel detail page
     # path('hotel_detail/<int:hotel_id>/',

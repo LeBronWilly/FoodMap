@@ -1,9 +1,9 @@
 # Information Modeling Team12
-Only three table
+Data Table: (專案進行中，待補！)
 
 ##Environment
 <br>
-Python x.x.x (3.8.6測試ok)
+Python x.x.x (3.8.6測試ok!)
 <br>
 Django 2.2.6
 
@@ -34,6 +34,6 @@ python manage.py migrate
 1. 把出錯的migrations資料夾裡面的東西刪掉(0001_initial.py & __init__.py)
 2. 然後一樣執行上面的Command
 
-##匯入餐廳OpenData：http://localhost:8000/open_data/import_restaurant
+##匯入餐廳OpenData：(專案進行中，待補！)
 
 

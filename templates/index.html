@@ -412,10 +412,7 @@
     {% endfor %}
 </script>
 {% endif %}
-<nav style="background:#a17e6b; height:80px">
-    <a style="font-size: 55px; color: white; font-weight: bold; margin-left: 15px;">
-            FoodMap
-    </a>
+
 {% comment %} <div align="right" ; style="background:#a17e6b; height:120px">
     <div align="left">
         <fieldset >
@@ -423,24 +420,28 @@
         </fieldset>
     </div> {% endcomment %}
     <!------------------------------------------------------------------------>
-    {% if user.is_authenticated %}
-        <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
-        <br>
-        <a align="right" ; href="{% url 'logout' %}"
-           style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
-    {% else %}
-        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 60px; margin-top: 15px; border-color:white;">
-            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
-                註冊
-            </a>
-        </button>
-        &nbsp;
-        &nbsp;
-        <button type="button" class="btn btn-outline-primary" style="float: right; margin-top: 15px; margin-right: 5px; border-color:white;">
-            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
-                登入
-            </a>
-        </button>
+    <nav style="background:#a17e6b; height:80px">
+        <a style="font-size: 55px; color: white; font-weight: bold; margin-left: 15px;">
+            FoodMap
+        </a>
+        {% if user.is_authenticated %}
+            <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
+            <br>
+            <a align="right" ; href="{% url 'logout' %}"
+                style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
+        {% else %}
+            <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 60px; margin-top: 15px; border-color:white;">
+                <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
+                    註冊
+                </a>
+            </button>
+            &nbsp;
+            &nbsp;
+            <button type="button" class="btn btn-outline-primary" style="float: right; margin-top: 15px; margin-right: 5px; border-color:white;">
+                <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
+                    登入
+                </a>
+            </button>
         {% comment %} <button type="button" class="btn btn-outline-primary" style="margin-top: 0px; margin-right: 5px; border-color:white;">
             <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
                 登入
@@ -453,8 +454,8 @@
                 註冊
             </a>
         </button> {% endcomment %}
-    {% endif %}
-</nav>
+        {% endif %}
+    </nav>
     <!------------------------------------------------------------------------>
 {% comment %} </div> {% endcomment %}
 <div class="s01">

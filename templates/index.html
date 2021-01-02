@@ -277,7 +277,9 @@
         restaurant_name = restaurant.options[restaurant.selectedIndex].text;
         restaurant_id = restaurant.options[restaurant.selectedIndex].id;
 
-
+        console.log(restaurant_add);
+        console.log(restaurant_name);
+        console.log(restaurant_id);
         geocoder.geocode(
             {'address': restaurant_add},
             function (results, status) {
@@ -566,7 +568,7 @@
             <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
                 {% for restaurant_item in select_restaurant %}
                     <option id="{{ restaurant_item.id }}"
-                            value={{ restaurant_item.restaurant_address}}>{{ restaurant_item.restaurant_name}}</option> {% endfor %}
+                            value="{{ restaurant_item.restaurant_address}}">{{ restaurant_item.restaurant_name}}</option> {% endfor %}
             </select>
         </div>
 

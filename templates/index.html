@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="../static/css/main.css"/>
 
     <style>
-        #foodmap{
+        {% comment %} #foodmap{
             font-size: 30px;
-        }
+        } {% endcomment %}
 
         #map {
             height: 600px;
@@ -412,21 +412,36 @@
     {% endfor %}
 </script>
 {% endif %}
-
-<div align="right" ; style="background:#a17e6b; height:120px">
+<nav style="background:#a17e6b; height:80px">
+    <a style="font-size: 55px; color: white; font-weight: bold; margin-left: 15px;">
+            FoodMap
+    </a>
+{% comment %} <div align="right" ; style="background:#a17e6b; height:120px">
     <div align="left">
         <fieldset >
             <legend id="foodmap">FoodMap</legend>
         </fieldset>
-    </div>
+    </div> {% endcomment %}
     <!------------------------------------------------------------------------>
     {% if user.is_authenticated %}
         <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
         <br>
-        <a href="{% url 'logout' %}"
+        <a align="right" ; href="{% url 'logout' %}"
            style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
     {% else %}
-        <button type="button" class="btn btn-outline-primary" style="margin-top: 0px; margin-right: 5px; border-color:white;">
+        <button type="button" class="btn btn-outline-primary" style="float: right; margin-right: 60px; margin-top: 15px; border-color:white;">
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
+                註冊
+            </a>
+        </button>
+        &nbsp;
+        &nbsp;
+        <button type="button" class="btn btn-outline-primary" style="float: right; margin-top: 15px; margin-right: 5px; border-color:white;">
+            <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
+                登入
+            </a>
+        </button>
+        {% comment %} <button type="button" class="btn btn-outline-primary" style="margin-top: 0px; margin-right: 5px; border-color:white;">
             <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px; " href="{% url 'login' %}">
                 登入
             </a>
@@ -437,10 +452,11 @@
             <a style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI; font-size:25px;"href="{% url 'signup' %}">
                 註冊
             </a>
-        </button>
+        </button> {% endcomment %}
     {% endif %}
+</nav>
     <!------------------------------------------------------------------------>
-</div>
+{% comment %} </div> {% endcomment %}
 <div class="s01">
 
     <form action="" method="post">
@@ -463,7 +479,7 @@
 
                 </div>
                 <div id="select_city">
-                    <td  class="ten wide">
+                    <td class="ten wide">
 
                         <select class="CountryCss" id="chose_area" name="city" style="background-color: #a17e6b; border-radius: 10px; color: white;">
                             <option value="" disabled selected>選擇地區</option>
@@ -514,15 +530,18 @@
 
 
             <div class="input-field third-wrap">
-                <button class="btn-search" type="submit" id="search_btn" style="font-family:Microsoft JhengHei">搜尋
+                {% comment %} <button class="btn-search" type="submit" id="search_btn" style="font-family:Microsoft JhengHei">搜尋 {% endcomment %}
+                <button class="btn-search" type="submit" id="search_btn" style="font-weight: bold; border-radius: 10px;background-color: white; color:#a17e6b; font-family:Microsoft JhengHei">搜尋
                 </button>
             </div>
 
             <div class="input-field third-wrap">
                 <button id="search_record_btn" class="btn-search" type="button" onclick="search_record_btn_click()"
-                        style="font-family:Microsoft JhengHei">
-                    <a href="/collection/" style="color:white; text-decoration:none;">
+                        style="font-weight: bold; border-radius: 10px;background-color: white; color:#a17e6b; font-family:Microsoft JhengHei">
+                    <a href="/collection/" style="color:#a17e6b; text-decoration:none;">
                         我的收藏
+                        {% comment %} style="font-family:Microsoft JhengHei">
+                    <a href="/collection/" style="color:white; text-decoration:none;"> {% endcomment %}
                     </a>
                 </button>
             </div>
@@ -562,7 +581,19 @@
 {#            </select>#}
 {#        </div>#}
 
-        <div class="select-box" style="background-color: #a17e6b">
+        <div class="select-box" >
+            <font style="font-family:Microsoft JhengHei; color:black;">餐廳：</font>
+            <label style="color: black" for="restaurantSelect" class="label select-box1" value=0 selected disabled >
+                <span class="label-desc">請選擇（餐廳）</span>
+            </label>
+            <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
+                {% for restaurant_item in select_restaurant %}
+                    <option id="{{ restaurant_item.id }}"
+                            value="{{ restaurant_item.restaurant_address}}">{{ restaurant_item.restaurant_name}}</option> {% endfor %}
+            </select>
+        </div>
+        
+        {% comment %} <div class="select-box" style="background-color: #a17e6b">
             <font color="white" style="font-family:Microsoft JhengHei">餐廳：</font>
             <label for="restaurantSelect" class="label select-box1" value=0 selected disabled hidden><span class="label-desc">請選擇（餐廳）</span></label>
             <select class="select" onchange="getRestaurantVal()" id="restaurantSelect" name="restaurantSelect">
@@ -570,7 +601,7 @@
                     <option id="{{ restaurant_item.id }}"
                             value="{{ restaurant_item.restaurant_address}}">{{ restaurant_item.restaurant_name}}</option> {% endfor %}
             </select>
-        </div>
+        </div> {% endcomment %}
 
 
         <script>
@@ -642,7 +673,8 @@
     </form>
 </div>
 <div align="right" ; style="background:#a17e6b; font-size:25px">
-    <button class="button2" onclick="add2collection()" style="font-family:Microsoft JhengHei">加入收藏</button>
+    <button class="button2" onclick="add2collection()" style="font-weight: bold; background-color: white; color:#a17e6b; font-family:Microsoft JhengHei">加入收藏</button>
+    {% comment %} <button class="button2" onclick="add2collection()" style="font-family:Microsoft JhengHei">加入收藏</button> {% endcomment %}
 </div>
 <div id="map" class="inner-form"></div>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

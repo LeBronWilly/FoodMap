@@ -13,6 +13,7 @@ urlpatterns = [
     path('import_PHrestaurant/', views.import_PHrestaurant, name='import_PHrestaurant'),
     path('import_MYrestaurant/', views.import_MYrestaurant, name='import_MYrestaurant'),
     path('import_TWrestaurant/', views.import_TWrestaurant, name='import_TWrestaurant'),
+    path('import_TWrestaurant_all/', views.import_TWrestaurant_all, name='import_TWrestaurant_all'),
 
     # # Hotel detail page
     # path('hotel_detail/<int:hotel_id>/',

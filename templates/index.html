@@ -424,9 +424,9 @@
         <a style="font-size: 55px; color: white; font-weight: bold; margin-left: 15px;">
             FoodMap
         </a>
+
         {% if user.is_authenticated %}
             <font color="white" style="font-family:Microsoft JhengHei;" >Hi {{ user.username }}!</font>
-            <br>
             <a align="right" ; href="{% url 'logout' %}"
                 style="color:#ffffff; text-decoration:none; font-family:Microsoft JhengHei UI">登出</a>
         {% else %}
@@ -455,6 +455,7 @@
             </a>
         </button> {% endcomment %}
         {% endif %}
+
     </nav>
     <!------------------------------------------------------------------------>
 {% comment %} </div> {% endcomment %}

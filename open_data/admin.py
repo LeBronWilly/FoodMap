@@ -8,9 +8,9 @@ from open_data.models import restaurant
 # Register your models here
 
 class restaurantAdmin(admin.ModelAdmin):
-    list_display = ("id", 'country',"city",'restaurant_name', 'restaurant_address')
+    list_display = ("id","city",'restaurant_name', 'restaurant_address')
     list_filter = ['country']
-    fields = ['restaurant_name', 'restaurant_address']
+    fields = ["city",'restaurant_name', 'restaurant_address']
 
 # class CountryAdmin(admin.ModelAdmin):
 #     list_display = ('country_name', 'last_modify_date', 'created')

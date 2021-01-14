@@ -4,8 +4,8 @@ from collection.models import favorite_restaurant
 
 
 class favorite_restaurantAdmin(admin.ModelAdmin):
-    list_display = ('id',"favorite_user_id", 'favorite_user','favorite_id','favorite', 'time')
-    list_filter = ['favorite_user']
+    list_display = ('id',"favorite_user_id",'favorite_id', 'time')
+    list_filter = ['favorite_user_id'] 
 
 # class favoritecompanyAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'favorite', 'favorite_user', 'time',)

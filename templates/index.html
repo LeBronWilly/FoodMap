@@ -484,7 +484,7 @@
                     <td class="ten wide">
 
                         <select class="CountryCss" id="chose_area" name="city" style="background-color: #a17e6b; border-radius: 10px; color: white;">
-                            <option value="" disabled selected>選擇地區</option>
+                            <option value="" disabled selected>選擇城市</option>
                         </select>
                     </td>
                 </div>
@@ -492,7 +492,7 @@
 {#                <div id="select_city_3" hidden="true">#}
 {#                    <td  class="ten wide" >#}
 {#                        <select class="CountryCss" id="chose_area" name="county">#}
-{#                            <option value="" disabled selected>選擇地區</option>#}
+{#                            <option value="" disabled selected>選擇城市</option>#}
 {#                            {% for city in citys_3 %}#}
 {#                                    <option>{{city.city_name}}</option>#}
 {#                            {% endfor %}#}
@@ -638,7 +638,7 @@
                 console.log(selected_country)
                 $('#chose_area').empty();
                 $('#restaurantSelect').empty();
-                $('#chose_area').append("<option value=\"\" disabled selected>選擇地區</option>")
+                $('#chose_area').append("<option value=\"\" disabled selected>選擇城市</option>")
                 {% for city in city_all %}
                     if ({{ city.country_id }} == selected_country){
                         $('#chose_area').append("<option value={{city.id}}>{{city.city_name}}</option>")
@@ -652,10 +652,10 @@
                 selected_city = $("#chose_area").val()
                 // if (selected_country != 1 && selected_country != 2 && selected_country != 3){
                 if (selected_country == null){
-                    alert('請選擇國家及地區');
+                    alert('請選擇國家及城市');
                 }else{
                     if (selected_city == null){
-                        alert('你沒選擇地區');
+                        alert('你沒選擇城市');
                     }
                     else{
                         // alert();

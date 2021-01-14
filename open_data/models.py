@@ -45,8 +45,8 @@ from django.utils import timezone
 class restaurant(models.Model):
     restaurant_name = models.TextField()
     restaurant_address = models.TextField()
-    country = models.ForeignKey(Country, on_delete='models.CASCADE', default=1)
-    city = models.ForeignKey(City, on_delete='models.CASCADE', default=1)
+    country = models.ForeignKey(Country, related_name='country_related', on_delete=models.CASCADE, default=1)
+    city = models.ForeignKey(City, related_name='city_related', on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.restaurant_name

@@ -8,7 +8,7 @@ from open_data.models import restaurant
 # Register your models here
 
 class restaurantAdmin(admin.ModelAdmin):
-    list_display = ('restaurant_name', 'restaurant_address', 'country',"city")
+    list_display = ("id", 'country',"city",'restaurant_name', 'restaurant_address')
     list_filter = ['country']
     fields = ['restaurant_name', 'restaurant_address']
 

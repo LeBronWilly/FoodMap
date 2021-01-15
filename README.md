@@ -1,7 +1,7 @@
 # FoodMap
 
-##Data Table:
-<p>
+##Data Table：
+<br>
 使用者、收藏、餐廳、國家、城市
 
 ##Environment

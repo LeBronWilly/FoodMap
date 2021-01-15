@@ -1,7 +1,7 @@
 # FoodMap
 
 ##Data Table:
-<br>
+<p>
 使用者、收藏、餐廳、國家、城市
 
 ##Environment
@@ -38,11 +38,7 @@ python manage.py migrate
 2. 然後一樣執行上面的Command
 
 ##匯入餐廳OpenData到資料庫：
-<br>
-匯入菲律賓餐廳：http://127.0.0.1:8000/open_data/import_PHrestaurant
-<br>
-匯入馬來西亞餐廳：http://127.0.0.1:8000/open_data/import_MYrestaurant
-<br>
-匯入台灣餐廳（北部地區）：http://127.0.0.1:8000/open_data/import_TWrestaurant
-<br>
-匯入台灣餐廳（全台）：http://127.0.0.1:8000/open_data/import_TWrestaurant_all
+1. 匯入菲律賓餐廳：http://127.0.0.1:8000/open_data/import_PHrestaurant
+2. 匯入馬來西亞餐廳：http://127.0.0.1:8000/open_data/import_MYrestaurant
+3. 匯入台灣餐廳（北部地區）：http://127.0.0.1:8000/open_data/import_TWrestaurant
+4. 匯入台灣餐廳（全台）：http://127.0.0.1:8000/open_data/import_TWrestaurant_all

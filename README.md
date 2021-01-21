@@ -24,7 +24,7 @@ pip install geojson
 
 ##Run
 ```Python
-python manage.py runserver
+python manage.py runserver 8000
 ```
 
 ##If Modify Model, Then Command Below, and Runserver
@@ -40,5 +40,6 @@ python manage.py migrate
 ##匯入餐廳OpenData到資料庫：
 1. 匯入菲律賓餐廳：http://127.0.0.1:8000/open_data/import_PHrestaurant
 2. 匯入馬來西亞餐廳：http://127.0.0.1:8000/open_data/import_MYrestaurant
-3. 匯入台灣餐廳（北部地區）：http://127.0.0.1:8000/open_data/import_TWrestaurant
-4. 匯入台灣餐廳（全台）：http://127.0.0.1:8000/open_data/import_TWrestaurant_all
+3. 匯入台灣餐廳（北部地區）：http://127.0.0.1:8000/open_data/import_TWrestaurant 
+4. 匯入台灣餐廳（全台）：http://127.0.0.1:8000/open_data/import_TWrestaurant_all 
+PS. 台灣餐廳資料量龐大，事後建議刪減，否則Google地圖可能跑不出來

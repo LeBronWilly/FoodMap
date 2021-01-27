@@ -17,22 +17,6 @@ from pathlib import Path
 
 # Create your views here.
 
-# def import_restaurant(request):
-#     base_path = Path(__file__).parent
-#     file_path = (base_path / "Restaurants.csv").resolve()
-#     try:
-#         with open(file_path, encoding="utf-8", newline="") as csvfile:
-#             rows = list(csv.reader(csvfile))
-#             for row in islice(rows, 1, None):
-#                 is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
-#                 if not is_restaurant:
-#                     row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
-#                     row.save()
-#         messages.error(request, '更新成功') 
-#     except Exception as e:
-#         messages.error(request, '更新失敗') 
-#     return HttpResponseRedirect("http://127.0.0.1:8000")
-
  
 def import_PHrestaurant(request):
     base_path = Path(__file__).parent
@@ -100,6 +84,28 @@ def import_TWrestaurant_all(request):
     except Exception as e:
         messages.error(request, '更新失敗= =') 
     return HttpResponseRedirect("http://127.0.0.1:8000")
+
+
+
+
+
+
+# def import_restaurant(request):
+#     base_path = Path(__file__).parent
+#     file_path = (base_path / "Restaurants.csv").resolve()
+#     try:
+#         with open(file_path, encoding="utf-8", newline="") as csvfile:
+#             rows = list(csv.reader(csvfile))
+#             for row in islice(rows, 1, None):
+#                 is_restaurant = restaurant.objects.filter(restaurant_name=row[0])
+#                 if not is_restaurant:
+#                     row = restaurant(restaurant_name=row[0], restaurant_address=row[1], country_id=row[2], city_id=row[3])
+#                     row.save()
+#         messages.error(request, '更新成功') 
+#     except Exception as e:
+#         messages.error(request, '更新失敗') 
+#     return HttpResponseRedirect("http://127.0.0.1:8000")
+
 
 
     # try:
